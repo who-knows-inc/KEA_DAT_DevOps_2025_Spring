@@ -1,0 +1,111 @@
+= DevOps Semester Plan
+
+== About the course
+
+link:00._Course_Material/00._Meta_Course_Material/about_the_course.md[About the course]
+
+// == Mandatories
+
+== Semester Plan
+
+The semester is subject to future modifications and updates during the semester.
+
+[width="100%",cols="2%,5%,20%,25%,25%,23%",options="header"]
+|===
+| # | Date | Topics | Before Class | After Class | Learning Goals
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
+| 1
+| Aug. 29th
+
+a| 
+link:00._Course_Material/02._Slides/01._Introduction/01._course_introduction.md[Course Introduction]
+
+link:00._Course_Material/02._Slides/01._Introduction/02._the_legacy_project.md[The Legacy Project]
+
+link:00._Course_Material/02._Slides/01._Introduction/03._conclusion.md[Conclusion]
+
+
+a|
+link:00._Course_Material/01._Assignments/01._Introduction/01._Before/install_these.md[Install these]
+
+link:00._Course_Material/01._Assignments/01._Introduction/01._Before/refresh_basic_terminal_commands.md[Refresh Basic Terminal Commands]
+
+link:00._Course_Material/01._Assignments/01._Introduction/01._Before/refresh_yaml_syntax.md[Refresh YAML syntax]
+
+link:00._Course_Material/01._Assignments/01._Introduction/01._Before/refresh_basic_git.md[Refresh git]
+
+
+a| 
+link:00._Course_Material/01._Assignments/01._Introduction/02._After/create_a_pr_to_repositories_py.md[Create a PR to repositories.py]
+
+link:00._Course_Material/01._Assignments/01._Introduction/02._After/github_started.md[Github started]
+
+link:00._Course_Material/01._Assignments/01._Introduction/02._After/git_release.md[Create your first release on Github]
+
+link:00._Course_Material/01._Assignments/01._Introduction/02._After/upgrade_the_application.md[Upgrade the application]
+
+link:00._Course_Material/01._Assignments/01._Introduction/02._After/create_a_dependency_graph.md[Create a dependency graph]
+
+link:00._Course_Material/01._Assignments/01._Introduction/02._After/problems_with_the_codebase.md[Problems with the codebase]
+
+a|
+Can use basic `git` commands to clone, add, commit, push, and pull
+
+Can `ssh` into a server and use basic Linux commands
+
+Can do network troubleshooting.
+
+Can identify problems with an inherited codebase.
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
+| 2
+| Sept. 5th
+a|
+link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/01._introduction.md[Introduction]
+
+link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/02._conventions.md[Conventions]
+
+link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/03._openapi.md[OpenAPI]
+
+link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/04._monolith_multirepo.md[Monolith / Multirepo]
+
+link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/05._environment_variables.md[Environment variables]
+
+a|
+link:./00._Course_Material/01._Assignments/02._Conventions_OpenAPI_DotEnv/01._Before/learn_branching.md[Learn branching]
+
+link:./00._Course_Material/01._Assignments/02._Conventions_OpenAPI_DotEnv/01._Before/terminal_files.md[Terminal files]
+
+link:./00._Course_Material/01._Assignments/02._Conventions_OpenAPI_DotEnv/01._Before/git_advanced.md[Git advanced]
+
+link:./00._Course_Material/01._Assignments/02._Conventions_OpenAPI_DotEnv/01._Before/decide_on_a_framework.md[Decide on a framework]
+
+a|
+link:./00._Course_Material/01._Assignments/02._Conventions_OpenAPI_DotEnv/02._After/generate_openapi_specification.md[Generate OpenAPI specification]
+
+link:./00._Course_Material/01._Assignments/02._Conventions_OpenAPI_DotEnv/02._After/commence_the_rewrite.md[Commence the rewrite]
+
+link:./00._Course_Material/01._Assignments/02._Conventions_OpenAPI_DotEnv/02._After/kanban_github_project.md[Kanban GitHub project]
+
+link:./00._Course_Material/01._Assignments/02._Conventions_OpenAPI_DotEnv/02._After/generate_openapi_spec_in_postman.md[Generate OpenAPI Postman]
+
+a|
+Knows which type of files not to push into version control and why. Will ensure that this is followed-through in the group repositories. 
+
+Can and will create proper commit messages. 
+
+Knows proper casing and naming conventions. 
+
+Understands the OpenAPI specification, why it exists and knows different ways to work it.
+
+Can generate an OpenAPI specification from the group's application.
+
+Can create a `.env` file and import/use the environment variables in the group's chosen programming language.
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
+|===
