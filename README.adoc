@@ -17,7 +17,7 @@ The semester is subject to future modifications and updates during the semester.
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 | 1
-| Aug. 29th
+| Feb. 31st
 
 a| 
 link:00._Course_Material/02._Slides/01._Introduction/01._course_introduction.md[Course Introduction]
