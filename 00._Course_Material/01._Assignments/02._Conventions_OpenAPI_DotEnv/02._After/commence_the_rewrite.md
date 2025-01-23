@@ -46,7 +46,3 @@ As you can see the `/about` page is optional.
 
 
 
-
-
-
-
