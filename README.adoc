@@ -64,15 +64,20 @@ Can identify problems with an inherited codebase.
 | 2
 | Sept. 5th
 a|
-link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/01._introduction.md[Introduction]
+// link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/01._introduction.md[Introduction]
+Introduction
 
-link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/02._conventions.md[Conventions]
+// link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/02._conventions.md[Conventions]
+Conventions
 
-link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/03._openapi.md[OpenAPI]
+// link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/03._openapi.md[OpenAPI]
+OpenAPI
 
-link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/04._monolith_multirepo.md[Monolith / Multirepo]
+// link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/04._monolith_multirepo.md[Monolith / Multirepo]
+Monolith / Multirepo
 
-link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/05._environment_variables.md[Environment variables]
+// link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/05._environment_variables.md[Environment variables]
+Environment variables
 
 a|
 link:./00._Course_Material/01._Assignments/02._Conventions_OpenAPI_DotEnv/01._Before/learn_branching.md[Learn branching]
