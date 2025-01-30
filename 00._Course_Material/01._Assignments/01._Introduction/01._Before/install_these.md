@@ -94,7 +94,7 @@ Many of you generated a SSH key pair last semester. If you have lost it then gen
 
 #### Docker
 
-Have Docker Desktop installed and be ready to work with Docker. Success criteria: Can run `docker --version` in the teminal. 
+Have Docker Desktop installed and be ready to work with Docker. Success criteria: Can run `docker -v` in the teminal. 
 
 Install Docker: https://www.docker.com/products/docker-desktop/.
 

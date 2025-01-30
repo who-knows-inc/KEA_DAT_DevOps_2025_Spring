@@ -4,7 +4,7 @@
 
 **Submission**: Save the graph as a SVG or image and store it somewhere where the entire group has quick access to it.
 
-**Motivation**: Helps you understand the dependencies between different parts of the application. Seeing how everything is coupled could help you understand how it could be deocoupled later on for easier maintance and fault tolerance. 
+**Motivation**: Helps you understand the dependencies between different parts of the application. Seeing how everything is coupled could help you understand how it could be deocoupled later on for easier maintenance and fault tolerance. 
 
 **Part of mandatory I.** 
 
