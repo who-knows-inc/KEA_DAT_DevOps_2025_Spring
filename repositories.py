@@ -8,5 +8,14 @@ GROUP_REPOS = [
             "stack": ["Flask", "Svelte", "CouchDB", "Redis"],
             "documentation": ["link to documentation", "another link if it applies", "et cetera"],
             "sla": "link to sla",
+        },
+        {
+            "name": "Debugger-Demons",
+            "gitLinks": ["https://github.com/Debugger-Demons/whoknows.git"],
+            "backend": "",
+            "frontend": "",
+            "monitoring": "",
+            "stack": [""],
+            "documentation": [""],
         }
 ]
