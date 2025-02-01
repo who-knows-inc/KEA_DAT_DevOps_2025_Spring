@@ -51,9 +51,9 @@ link:00._Course_Material/01._Assignments/01._Introduction/02._After/create_a_dep
 link:00._Course_Material/01._Assignments/01._Introduction/02._After/problems_with_the_codebase.md[Problems with the codebase]
 
 a|
-Can use basic `git` commands to clone, add, commit, push, and pull
+Can use basic `git` commands to clone, add, commit, push, and pull.
 
-Can `ssh` into a server and use basic Linux commands
+Can `ssh` into a server and use basic Linux commands.
 
 Can do network troubleshooting.
 
