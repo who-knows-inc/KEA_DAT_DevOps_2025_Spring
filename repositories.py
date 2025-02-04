@@ -7,5 +7,16 @@ GROUP_REPOS = [
             "monitoring": "",
             "stack": [""],
             "documentation": [""],
-        }
+        },
+        {
+            "name": "DevOpsDynamite",
+            "gitLinks": ["https://github.com/DevOpsDynamite"],
+            "backend": "",
+            "frontend": "",
+            "monitoring": "",
+            "stack": [],
+            "documentation": [],
+            "sla": "",
+}
+
 ]
