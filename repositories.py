@@ -18,7 +18,7 @@ GROUP_REPOS = [
             "documentation": [],
             "sla": "",
 
-}
+},
          {
             "name": "DevOops23b",
             "gitLinks": ["https://github.com/DevOops23b/whoknows.git"],
