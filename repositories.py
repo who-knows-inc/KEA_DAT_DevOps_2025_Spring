@@ -17,7 +17,18 @@ GROUP_REPOS = [
             "stack": [],
             "documentation": [],
             "sla": "",
+
 },
+         {
+            "name": "DevOops23b",
+            "gitLinks": ["https://github.com/DevOops23b/whoknows.git"],
+            "backend": "GO m. Gorilla",
+            "frontend": "HTML, CSS",
+            "monitoring": "",
+            "stack": [""],
+            "documentation": [""],   
+        },
+
 {
             "name": "PipelinePionee.rs",
             "gitLinks": ["https://github.com/PipelinePionee-rs/WhoKnowsBackend.git"],
@@ -28,5 +39,6 @@ GROUP_REPOS = [
             "documentation": [],
             "sla": "",
 },
+
 
 ]
