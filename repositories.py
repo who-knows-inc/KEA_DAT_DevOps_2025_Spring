@@ -17,6 +17,7 @@ GROUP_REPOS = [
             "stack": [],
             "documentation": [],
             "sla": "",
+
 }
          {
             "name": "DevOops23b",
@@ -26,6 +27,18 @@ GROUP_REPOS = [
             "monitoring": "",
             "stack": [""],
             "documentation": [""],   
-        }
+        },
+
+{
+            "name": "PipelinePionee.rs",
+            "gitLinks": ["https://github.com/PipelinePionee-rs/WhoKnowsBackend.git"],
+            "backend": "",
+            "frontend": "",
+            "monitoring": "",
+            "stack": [],
+            "documentation": [],
+            "sla": "",
+},
+
 
 ]
