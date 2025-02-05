@@ -17,6 +17,16 @@ GROUP_REPOS = [
             "stack": [],
             "documentation": [],
             "sla": "",
-}
+},
+{
+            "name": "PipelinePionee.rs",
+            "gitLinks": ["https://github.com/PipelinePionee-rs/WhoKnowsBackend.git"],
+            "backend": "",
+            "frontend": "",
+            "monitoring": "",
+            "stack": [],
+            "documentation": [],
+            "sla": "",
+},
 
 ]
