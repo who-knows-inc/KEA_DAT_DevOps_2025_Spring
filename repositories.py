@@ -18,5 +18,14 @@ GROUP_REPOS = [
             "documentation": [],
             "sla": "",
 }
+         {
+            "name": "DevOops23b",
+            "gitLinks": ["https://github.com/DevOops23b/whoknows.git"],
+            "backend": "GO m. Gorilla",
+            "frontend": "HTML, CSS",
+            "monitoring": "",
+            "stack": [""],
+            "documentation": [""],   
+        }
 
 ]
