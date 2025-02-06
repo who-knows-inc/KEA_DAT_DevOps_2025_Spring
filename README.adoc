@@ -180,6 +180,7 @@ Can suggest various deployment strategies and knows the pros and cons of each.
 
 Understands the difference between pull-based and push-based deployment.
 
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
