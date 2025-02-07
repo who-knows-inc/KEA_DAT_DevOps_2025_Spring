@@ -82,7 +82,7 @@ link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/02._conventio
 link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/03._openapi.md[OpenAPI]
 // OpenAPI
 
-link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/04._monolith_multirepo.md[Monolith / Multirepo]
+link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/04._monolith_monorepo_multirepo.md[Monolith / Monorepo / Multirepo]
 // Monolith / Multirepo
 
 link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/05._environment_variables.md[Environment variables]
