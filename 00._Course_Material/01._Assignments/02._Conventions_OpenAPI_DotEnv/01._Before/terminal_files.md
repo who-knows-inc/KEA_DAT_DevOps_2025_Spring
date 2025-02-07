@@ -1,16 +1,14 @@
 # Terminal Files
 
-Work with files through the terminal. 
-
+Work with files through the terminal.
 
 **Type**: Individual
 
-**Motivation**: This will help you when you want to work with files on the server. (You are welcome to skip the Windows sections if they do not apply to you). 
-
+**Motivation**: This will help you when you want to work with files on the server. (You are welcome to skip the Windows sections if they do not apply to you).
 
 ---
 
-## File creation (*nix):
+## File creation (\*nix):
 
 Output hello:
 
@@ -37,13 +35,13 @@ $ cat <filename>
 Create a new file (PowerShell):
 
 ```powershell
-New-Item <filename> -ItemType "file"
+touch <filename>
 ```
 
 Display file contents (PowerShell):
 
 ```powershell
-Get-Content <filename>
+cat <filename>
 ```
 
 ---
@@ -62,16 +60,15 @@ Avoid spaces in files and folders!
 
 ## Hidden files and folders
 
-**In *nix**, a file or folder is made hidden by prefixing its name with a dot `.`. For example, `.example`.
+**In \*nix**, a file or folder is made hidden by prefixing its name with a dot `.`. For example, `.example`.
 
 **In Windows**, the 'hidden' attribute is set on the file or folder, which can be done through file properties or using the command `attrib +h`.
 
-Finder / Explorer can be configured to either show or hide hidden folders / files. 
-
+Finder / Explorer can be configured to either show or hide hidden folders / files.
 
 ---
 
-## Text Editors - Windows: 
+## Text Editors - Windows:
 
 No native text editors for the terminal. Alternatives (but will not work on servers):
 
@@ -85,7 +82,7 @@ $ code <filename>
 
 ---
 
-## Text Editors in *nix Systems
+## Text Editors in \*nix Systems
 
 #### **Nano**: Simple and User-Friendly.
 
@@ -109,7 +106,7 @@ $ code <filename>
 
 # Using a different editor for Git
 
-If you have ever typed `git commit` without the `-m`, you will be presented with the `vim` editor. 
+If you have ever typed `git commit` without the `-m`, you will be presented with the `vim` editor.
 
 If you prefer nano, you can change the default editor for `git` like this:
 
@@ -121,7 +118,7 @@ $ git config --global core.editor "nano"
 
 # Install Nano and Vim on Windows:
 
-Depending on your terminal you might already have them. 
+Depending on your terminal you might already have them.
 
 You can test it by running `nano` or `vim`. Otherwise:
 
@@ -132,6 +129,7 @@ $ choco install nano
 ```bash
 $ choco install vim
 ```
+
 ---
 
 ## Quitting
@@ -161,5 +159,3 @@ CTRL-D
 ```
 
 ---
-
-
