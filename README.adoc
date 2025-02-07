@@ -154,7 +154,7 @@ Running in Production
 Deployment Considerations
 
 a|
-link:00._Course_Material/01._Assignments/03._Github_Actions_Cloud_Azure_Deploy/01._Before/read_about_github_actions.md[Read about github actions]
+link:00._Course_Material/01._Assignments/03._Github_Actions_Cloud_Azure_Deploy/01._Before/read_about_github_actions.md[Read about Github Actions]
 
 link:00._Course_Material/01._Assignments/03._Github_Actions_Cloud_Azure_Deploy/01._Before/github_pr_template.md[Github PR template]
 
