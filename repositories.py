@@ -12,10 +12,10 @@ GROUP_REPOS = [
         {
             "name": "Debugger-Demons",
             "gitLinks": ["https://github.com/Debugger-Demons/whoknows.git"],
-            "backend": "",
-            "frontend": "",
+            "backend": "52.174.164.161",
+            "frontend": "52.174.164.161",
             "monitoring": "",
-            "stack": [""],
+            "stack": ["Rust, Actix"],
             "documentation": [""],
         }
 ]
