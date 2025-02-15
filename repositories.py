@@ -10,12 +10,12 @@ GROUP_REPOS = [
             "sla": "link to sla",
         },
         {
-            "name": "Debugger-Demons",
+           "name": "Debugger-Demons",
             "gitLinks": ["https://github.com/Debugger-Demons/whoknows.git"],
             "backend": "52.174.164.161",
             "frontend": "52.174.164.161",
             "monitoring": "",
             "stack": ["Rust, Actix"],
-            "documentation": [""],
+            "documentation": [""]
         }
 ]
