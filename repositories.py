@@ -31,11 +31,11 @@ GROUP_REPOS = [
 
 {
             "name": "PipelinePionee.rs",
-            "gitLinks": ["https://github.com/PipelinePionee-rs/WhoKnowsBackend.git"],
+            "gitLinks": ["https://github.com/PipelinePionee-rs/Sauron.git"],
             "backend": "",
             "frontend": "",
             "monitoring": "",
-            "stack": [],
+            "stack": ["Rust","Axum","SQLite","HTML/CSS/JS"],
             "documentation": [],
             "sla": "",
 },
