@@ -2,12 +2,14 @@ GROUP_REPOS = [
         {
             "name": "Debugger-Demons",
             "gitLinks": ["https://github.com/Debugger-Demons/whoknows.git"],
-            "backend": "",
-            "frontend": "",
+            "backend": "52.174.164.161",
+            "frontend": "52.174.164.161",
             "monitoring": "",
-            "stack": [""],
+            "stack": ["Rust, Actix"],
             "documentation": [""],
-        },
+            "sla": "",
+},
+  
         {
             "name": "DevOpsDynamite",
             "gitLinks": ["https://github.com/DevOpsDynamite/DevOpsDynamite_Python2to3"],
@@ -39,6 +41,6 @@ GROUP_REPOS = [
             "documentation": [],
             "sla": "",
 },
-
-
+  
+  
 ]
