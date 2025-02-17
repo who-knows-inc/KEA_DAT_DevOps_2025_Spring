@@ -188,20 +188,23 @@ Understands the difference between pull-based and push-based deployment.
 | 4
 | Feb. 21st
 a|
-// link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/01._introduction.md[Introduction]
-Introduction
+link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/01._introduction.md[Introduction]
+// Introduction
 
-// link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/02._software_quality.md[Software quality]
-Software Quality
+link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/02._software_quality.md[Software quality]
+// Software Quality
 
-// link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/03._ci_cd.md[CI/CD]
-CI/CD
+link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/03._ci_cd.md[CI/CD]
+// CI/CD
 
-// link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/04._linting.md[Linting]
-Linting
+link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/04._linting.md[Linting]
+// Linting
 
-// link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/05._branching_strategies.md[Branching strategies]
-Branching strategies
+link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/05._branching_strategies.md[Branching strategies]
+// Branching strategies
+
+link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/05._branching_strategies.md[Cron]
+// Cron
 
 a|
 link:00._Course_Material/01._Assignments/04._Sofware_Quality_Linting_CI/01._Before/research_git_branching_strategies.md[Research git branching strategies]
@@ -242,5 +245,48 @@ Is familiar with different branching strategies.
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+| 5
+| Feb. 28th
+a|
+// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/01._introduction.md[Introduction]
+Introduction
+
+// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/02._build_tools.md[Build tools]
+Build tools
+
+// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/03._packaging.md[Packaging]
+Packaging
+
+// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/04._virtualization_containerization.md[Virtualization / Containerization]
+Virtualization / Containerization
+
+// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/05._docker.md[Docker]
+Docker
+
+// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/06._dockerfile.md[Dockerfile]
+Dockerfile
+
+// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/assets_build_tools/python_build_tools.md[Python build tools]
+Python build tools
+
+a|
+link:00._Course_Material/01._Assignments/05._Docker_The_Simulation/01._Before/refresh_docker_knowledge.md[Refresh Docker knowledge]
+
+link:00._Course_Material/01._Assignments/05._Docker_The_Simulation/01._Before/the_simulation.md[The Simulation]
+a|
+link:00._Course_Material/01._Assignments/05._Docker_The_Simulation/02._After/setup_postman_monitoring.md[Setup Postman Monitoring]
+
+link:00._Course_Material/01._Assignments/05._Docker_The_Simulation/02._After/docker_from_scratch.md[Docker from scratch]
+a|
+Understands different levels of build tools from OS to language-specific ones.
+
+Understands the difference between packaging and virtualization/containerization.
+
+Understands how Docker differs from its predecessors and modern alternatives.
+
+Can understand simple Dockerfiles for different languages.
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
 
 |===
