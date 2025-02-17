@@ -34,11 +34,11 @@ GROUP_REPOS = [
 {
             "name": "PipelinePionee.rs",
             "gitLinks": ["https://github.com/PipelinePionee-rs/Sauron.git"],
-            "backend": "",
-            "frontend": "",
+            "backend": "sauron.tolana.dev/api/v1",
+            "frontend": "sauron.tolana.dev",
             "monitoring": "",
             "stack": ["Rust","Axum","SQLite","HTML/CSS/JS"],
-            "documentation": [],
+            "documentation": ["sauron.tolana.dev/api-doc/openapi.json"],
             "sla": "",
 },
   
