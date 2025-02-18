@@ -38,7 +38,7 @@ GROUP_REPOS = [
             "frontend": "sauron.tolana.dev",
             "monitoring": "",
             "stack": ["Rust","Axum","SQLite","HTML/CSS/JS"],
-            "documentation": ["sauron.tolana.dev/api-doc/openapi.json"],
+            "documentation": ["sauron.tolana.dev/doc/api-doc/openapi.json"],
             "sla": "",
 },
   
