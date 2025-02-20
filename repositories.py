@@ -13,10 +13,10 @@ GROUP_REPOS = [
         {
             "name": "DevOpsDynamite",
             "gitLinks": ["https://github.com/DevOpsDynamite/DevOpsDynamite_Python2to3"],
-            "backend": "",
-            "frontend": "",
+            "backend": "104.46.44.178:4568/api",
+            "frontend": "104.46.44.178:4568",
             "monitoring": "",
-            "stack": [],
+            "stack": ["Ruby", "Sinatra", "SQLite", "HTML/CSS/JS"],
             "documentation": [],
             "sla": "",
 
@@ -34,11 +34,11 @@ GROUP_REPOS = [
 {
             "name": "PipelinePionee.rs",
             "gitLinks": ["https://github.com/PipelinePionee-rs/Sauron.git"],
-            "backend": "",
-            "frontend": "",
+            "backend": "sauron.tolana.dev/api/v1",
+            "frontend": "sauron.tolana.dev",
             "monitoring": "",
             "stack": ["Rust","Axum","SQLite","HTML/CSS/JS"],
-            "documentation": [],
+            "documentation": ["sauron.tolana.dev/doc/api-doc/openapi.json"],
             "sla": "",
 },
   
