@@ -24,10 +24,10 @@ GROUP_REPOS = [
          {
             "name": "DevOops23b",
             "gitLinks": ["https://github.com/DevOops23b/whoknows.git", "https://github.com/DevOops23b/GoSearch.git"],
-            "backend": "GO m. Gorilla",
-            "frontend": "HTML, CSS",
+            "backend": "40.91.244.170:8080",
+            "frontend": "40.91.244.170:8080",
             "monitoring": "",
-            "stack": [""],
+            "stack": ["GO m. Gorilla", "HTML, CSS"],
             "documentation": [""],   
         },
 
