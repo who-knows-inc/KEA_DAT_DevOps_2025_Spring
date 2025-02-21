@@ -1,6 +1,6 @@
 GROUP_REPOS = [
         {
-            "name": "Debugger-Demons",
+            "name": "DebuggerDemons",
             "gitLinks": ["https://github.com/Debugger-Demons/whoknows.git"],
             "backend": "http://195.249.188.98:18080/",
             "frontend": "http://195.249.188.98:18080/",
