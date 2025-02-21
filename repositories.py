@@ -2,8 +2,8 @@ GROUP_REPOS = [
         {
             "name": "Debugger-Demons",
             "gitLinks": ["https://github.com/Debugger-Demons/whoknows.git"],
-            "backend": "52.174.164.161",
-            "frontend": "52.174.164.161",
+            "backend": "http://51.144.96.163:8080/",
+            "frontend": "http://51.144.96.163:8080/",
             "monitoring": "",
             "stack": ["Rust, Actix"],
             "documentation": [""],
@@ -13,10 +13,10 @@ GROUP_REPOS = [
         {
             "name": "DevOpsDynamite",
             "gitLinks": ["https://github.com/DevOpsDynamite/DevOpsDynamite_Python2to3"],
-            "backend": "",
-            "frontend": "",
+            "backend": "104.46.44.178:4568/api",
+            "frontend": "104.46.44.178:4568",
             "monitoring": "",
-            "stack": [],
+            "stack": ["Ruby", "Sinatra", "SQLite", "HTML/CSS/JS"],
             "documentation": [],
             "sla": "",
 
@@ -24,21 +24,21 @@ GROUP_REPOS = [
          {
             "name": "DevOops23b",
             "gitLinks": ["https://github.com/DevOops23b/whoknows.git", "https://github.com/DevOops23b/GoSearch.git"],
-            "backend": "GO m. Gorilla",
-            "frontend": "HTML, CSS",
+            "backend": "40.91.244.170",
+            "frontend": "40.91.244.170",
             "monitoring": "",
-            "stack": [""],
+            "stack": ["GO m. Gorilla", "HTML, CSS"],
             "documentation": [""],   
         },
 
 {
             "name": "PipelinePionee.rs",
             "gitLinks": ["https://github.com/PipelinePionee-rs/Sauron.git"],
-            "backend": "",
-            "frontend": "",
+            "backend": "sauron.tolana.dev/api/v1",
+            "frontend": "sauron.tolana.dev",
             "monitoring": "",
             "stack": ["Rust","Axum","SQLite","HTML/CSS/JS"],
-            "documentation": [],
+            "documentation": ["sauron.tolana.dev/doc/api-doc/openapi.json"],
             "sla": "",
 },
   
