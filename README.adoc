@@ -203,7 +203,7 @@ link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/04._linting.m
 link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/05._branching_strategies.md[Branching strategies]
 // Branching strategies
 
-link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/05._branching_strategies.md[Cron]
+link:00._Course_Material/02._Slides/04._Sofware_Quality_Linting_CI/06._cron.md[Cron]
 // Cron
 
 a|
