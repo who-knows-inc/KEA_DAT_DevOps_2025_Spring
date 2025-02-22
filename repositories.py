@@ -13,8 +13,8 @@ GROUP_REPOS = [
         {
             "name": "DevOpsDynamite",
             "gitLinks": ["https://github.com/DevOpsDynamite/DevOpsDynamite_Python2to3"],
-            "backend": "104.46.44.178:4568/api",
-            "frontend": "104.46.44.178:4568",
+            "backend": "http://104.46.44.178:4568/",
+            "frontend": "http://104.46.44.178:4568/",
             "monitoring": "",
             "stack": ["Ruby", "Sinatra", "SQLite", "HTML/CSS/JS"],
             "documentation": [],
