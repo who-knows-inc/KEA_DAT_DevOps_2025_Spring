@@ -64,7 +64,7 @@ Can use basic `git` commands to clone, add, commit, push, and pull.
 
 Can `ssh` into a server and use basic Linux commands.
 
-Can do network troubleshooting.
+Can do network / process / server troubleshooting.
 
 Can identify problems with an inherited codebase.
 
@@ -286,6 +286,81 @@ Understands the difference between packaging and virtualization/containerization
 Understands how Docker differs from its predecessors and modern alternatives.
 
 Can understand simple Dockerfiles for different languages.
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+| 6
+| Mar. 7th
+a|
+// link:00._Course_Material/02._Slides/06._Docker-compose_Continuous_Delivery_DevOps/01._introduction.md[Introduction]
+Introduction
+
+// link:00._Course_Material/02._Slides/06._Docker-compose_Continuous_Delivery_DevOps/02._docker-compose.md[Docker-compose]
+Docker-compose
+
+// link:00._Course_Material/02._Slides/06._Docker-compose_Continuous_Delivery_DevOps/03._hot_reload_in_docker.md[Hot reload in Docker]
+Hot reload in Docker
+
+// link:00._Course_Material/02._Slides/06._Docker-compose_Continuous_Delivery_DevOps/04._debug_docker-compose.md[Debug docker-compose]
+Debug docker-compose
+
+// link:00._Course_Material/02._Slides/06._Docker-compose_Continuous_Delivery_DevOps/05._agile.md[Agile]
+Agile
+
+// link:00._Course_Material/02._Slides/06._Docker-compose_Continuous_Delivery_DevOps/06._devops.md[DevOps]
+DevOps
+
+// link:00._Course_Material/02._Slides/06._Docker-compose_Continuous_Delivery_DevOps/07._continuous_delivery.md[Continuous Delivery]
+Continuous Delivery
+a|
+link:00._Course_Material/01._Assignments/06._Docker-compose_Continuous_Delivery_DevOps/01._Before/100+_docker_concepts_you_need_to_know.md[100+ docker concepts you need to know]
+
+link:00._Course_Material/01._Assignments/06._Docker-compose_Continuous_Delivery_DevOps/01._Before/generate_cr_pat.md[Generate CR_PAT]
+
+link:00._Course_Material/01._Assignments/06._Docker-compose_Continuous_Delivery_DevOps/01._Before/read_devops_literature_I.md[Read DevOps Literature I]
+
+link:00._Course_Material/01._Assignments/06._Docker-compose_Continuous_Delivery_DevOps/01._Before/refresh_docker-compose.md[Refresh docker-compose]
+a|
+link:00._Course_Material/01._Assignments/06._Docker-compose_Continuous_Delivery_DevOps/02._After/whoknows_variations_continuous_delivery.md[whoknows_variations Continuous Delivery]
+
+link:00._Course_Material/01._Assignments/06._Docker-compose_Continuous_Delivery_DevOps/02._After/workflow_strategies.md[Workflow strategies]
+a|
+Can argue for the benefit of using Docker-compose over Dockerfiles.
+
+Understands various basic docker-compose.yml files.
+
+Can argue for the pros and cons of hot reload in Docker.
+
+Understands Continuous Delivery as we define it in this course and has a general idea of how it works.
+
+Can explain what agile is, why it was created. 
+
+Understands the history of DevOps and different ways to understand it.
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+| 7
+| Mar. 14th
+a|
+Guest Lecture by Sofus from link:https://www.eficode.com/[Eficode]​
+a|
+// link:00._Course_Material/01._Assignments/07._Guest_Lecture/01._Before/read_devops_literature_II.md[Read DevOps Literature II]
+
+// link:00._Course_Material/01._Assignments/07._Guest_Lecture/01._Before/detecting_agile_bs.md[Detecting Agile BS]
+a|
+// link:00._Course_Material/01._Assignments/07._Guest_Lecture/02._After/create_an_issue_template.md[Create an Issue Template]
+
+// link:00._Course_Material/01._Assignments/07._Guest_Lecture/02._After/how_are_you_devops.md[How are you DevOps?]
+a|
+Knows the historical angel of DevOps and how it has evolved.
+
+Understands the problems that DevOps aims to solve in modern organizations.
+
+Understands the concept of psychological safety and why it matters. 
+
+Understands how crucial it is for business competitiveness to bring down pipeline execution time. Can implement simultanously running pipelines to cut time whenever it is possible.
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 

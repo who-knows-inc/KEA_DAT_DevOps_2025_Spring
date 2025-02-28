@@ -208,7 +208,7 @@ It is fine not to create a Postman team and just have one person be in charge of
 
 ## What now?
 
-Now that you have tried to create a monitor for a single test, you can consider writing duplicated tests in `Post-response` for hte collection. 
+Now that you have tried to create a monitor for a single test, you can consider writing duplicated tests in `Post-response` for the collection.
 
 https://learning.postman.com/docs/tests-and-scripts/write-scripts/intro-to-scripts/
 
