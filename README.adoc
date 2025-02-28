@@ -249,26 +249,26 @@ Is familiar with different branching strategies.
 | 5
 | Feb. 28th
 a|
-// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/01._introduction.md[Introduction]
-Introduction
+link:00._Course_Material/02._Slides/05._Docker_The_Simulation/01._introduction.md[Introduction]
+// Introduction
 
-// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/02._build_tools.md[Build tools]
-Build tools
+link:00._Course_Material/02._Slides/05._Docker_The_Simulation/02._build_tools.md[Build tools]
+// Build tools
 
-// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/03._packaging.md[Packaging]
-Packaging
+link:00._Course_Material/02._Slides/05._Docker_The_Simulation/03._packaging.md[Packaging]
+// Packaging
 
-// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/04._virtualization_containerization.md[Virtualization / Containerization]
-Virtualization / Containerization
+link:00._Course_Material/02._Slides/05._Docker_The_Simulation/04._virtualization_containerization.md[Virtualization / Containerization]
+// Virtualization / Containerization
 
-// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/05._docker.md[Docker]
-Docker
+link:00._Course_Material/02._Slides/05._Docker_The_Simulation/05._docker.md[Docker]
+// Docker
 
-// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/06._dockerfile.md[Dockerfile]
-Dockerfile
+link:00._Course_Material/02._Slides/05._Docker_The_Simulation/06._dockerfile.md[Dockerfile]
+// Dockerfile
 
-// link:00._Course_Material/02._Slides/05._Docker_The_Simulation/assets_build_tools/python_build_tools.md[Python build tools]
-Python build tools
+link:00._Course_Material/02._Slides/05._Docker_The_Simulation/assets_build_tools/python_build_tools.md[Python build tools]
+// Python build tools
 
 a|
 link:00._Course_Material/01._Assignments/05._Docker_The_Simulation/01._Before/refresh_docker_knowledge.md[Refresh Docker knowledge]
