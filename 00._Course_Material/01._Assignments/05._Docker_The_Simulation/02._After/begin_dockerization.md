@@ -14,7 +14,7 @@ Depending on if the frontend is served by the backend you might end up with 1 or
 
 ---
 
-# The Database Problem
+## The Database Problem
 
 The goal after next week is to publish the images to a public registry. Because it has to be public, it disallows you to include the SQLite database in the image.
 
