@@ -32,9 +32,9 @@ Have a way to manage issues.
 
 ---
 
-## Code quality
+## Software quality
 
-Ensure code quality (static analysis / linting).
+Ensure software quality (static analysis / linting).
 
 You must perform testing.
 
