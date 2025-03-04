@@ -12,7 +12,7 @@ GROUP_REPOS = [
   
         {
             "name": "DevOpsDynamite",
-            "gitLinks": ["https://github.com/DevOpsDynamite/DevOpsDynamite_Python2to3"],
+            "gitLinks": ["https://github.com/DevOpsDynamite/DynaSearch"],
             "backend": "http://104.46.44.178:4568/",
             "frontend": "http://104.46.44.178:4568/",
             "monitoring": "",
