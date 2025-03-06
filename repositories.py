@@ -12,7 +12,7 @@ GROUP_REPOS = [
   
         {
             "name": "DevOpsDynamite",
-            "gitLinks": ["https://github.com/DevOpsDynamite/DevOpsDynamite_Python2to3"],
+            "gitLinks": ["https://github.com/DevOpsDynamite/DynaSearch"],
             "backend": "http://104.46.44.178:4568/",
             "frontend": "http://104.46.44.178:4568/",
             "monitoring": "",
@@ -24,8 +24,8 @@ GROUP_REPOS = [
          {
             "name": "DevOops23b",
             "gitLinks": ["https://github.com/DevOops23b/whoknows.git", "https://github.com/DevOops23b/GoSearch.git"],
-            "backend": "40.91.244.170",
-            "frontend": "40.91.244.170",
+            "backend": "http://40.91.244.170:8080",
+            "frontend": "http://40.91.244.170:8080",
             "monitoring": "",
             "stack": ["GO m. Gorilla", "HTML, CSS"],
             "documentation": [""],   
