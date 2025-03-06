@@ -339,7 +339,7 @@ Can argue for the pros and cons of hot reload in Docker.
 
 Understands Continuous Delivery as we define it in this course and has a general idea of how it works.
 
-Can explain what agile is, why it was created. 
+Can explain what agile is, why it was created.
 
 Understands the history of DevOps and different ways to understand it.
 
