@@ -367,6 +367,8 @@ Understands the concept of psychological safety and why it matters.
 
 Understands how crucial it is for business competitiveness to bring down pipeline execution time. Can implement simultanously running pipelines to cut time whenever it is possible.
 
+Has read all the course literature and can talk about the content. 
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 
