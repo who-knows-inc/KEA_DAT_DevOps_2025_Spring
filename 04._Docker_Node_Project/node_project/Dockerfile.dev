@@ -11,4 +11,6 @@ RUN npm install -g nodemon
 
 COPY . .
 
-CMD npm config set prefer-offline true && nodemon app.js
+CMD npm config set prefer-offline true && nodemon --legacy-watch app.js
+# legacy version that doesn't work anymore
+# CMD npm config set cache-min 9999999 && npm run dev
