@@ -1,0 +1,20 @@
+
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: development
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: pass123
+    ports:
+      - "3000:80"
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: pass123
+
+
