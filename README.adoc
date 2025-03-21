@@ -387,7 +387,6 @@ link:00._Course_Material/02._Slides/08._Continuous_Deployment/05._continuous_dep
 
 link:00._Course_Material/02._Slides/08._Continuous_Deployment/06._reverse_proxies.md[Reverse Proxies]
 
-link:00._Course_Material/02._Slides/08._Continuous_Deployment/07._dev_containers.md[Dev Containers]
 a|
 link:00._Course_Material/01._Assignments/08._Continuous_Deployment/01._Before/deploy_to_github_pages.md[Deploy to GitHub Pages]
 
