@@ -23,7 +23,7 @@ If your solution requires transfering files to the server, then build it into th
 
 ---
 
-## [Optional / Individual] Whoknows Variatons
+## [Optional / Individual] Whoknows Variations
 
 I offer a solution that you are free to discard for something better. But try it out individually so you get a feel for what the workflow does.
 
