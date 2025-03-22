@@ -27,7 +27,7 @@ If your solution requires transfering files to the server, then build it into th
 
 I offer a solution that you are free to discard for something better. But try it out individually so you get a feel for what the workflow does.
 
-Try out the [continous deployment branch](https://github.com/who-knows-inc/whoknows_variations/tree/continuous_deployment) to get a taste of one way to make it work. 
+Try out the [continuous deployment branch](https://github.com/who-knows-inc/whoknows_variations/tree/continuous_deployment) to get a taste of one way to make it work. 
 
 The steps are:
 
