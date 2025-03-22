@@ -392,6 +392,8 @@ link:00._Course_Material/01._Assignments/08._Continuous_Deployment/01._Before/de
 
 link:00._Course_Material/01._Assignments/08._Continuous_Deployment/01._Before/read_about_gitops.md[Read about GitOps]
 a|
+link:00._Course_Material/01._Assignments/08._Continuous_Deployment/02._After/continuous_deployment.md[Continuous Deployment]
+
 link:00._Course_Material/01._Assignments/08._Continuous_Deployment/02._After/fts5.md[FTS5]
 
 link:00._Course_Material/01._Assignments/08._Continuous_Deployment/02._After/postmortem.md[Postmortem]
