@@ -71,7 +71,7 @@ Can identify problems with an inherited codebase.
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 | 2
-| Sept. 5th
+| Feb. 7th
 a|
 link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/01._introduction.md[Introduction]
 // Introduction
