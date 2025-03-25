@@ -26,7 +26,7 @@ The semester is subject to future modifications and updates during the semester.
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 | 1
-| Feb. 31st
+| Jan. 31st
 
 a| 
 link:00._Course_Material/02._Slides/01._Introduction/01._course_introduction.md[Course Introduction]
@@ -71,7 +71,7 @@ Can identify problems with an inherited codebase.
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 | 2
-| Sept. 5th
+| Feb. 7th
 a|
 link:00._Course_Material/02._Slides/02._Conventions_OpenAPI_DotEnv/01._introduction.md[Introduction]
 // Introduction
@@ -373,7 +373,7 @@ Has read all the course literature and can talk about the content.
 
 
 | 8
-| Oct. 24th
+| Mar. 21st
 a|
 link:00._Course_Material/02._Slides/08._Continuous_Deployment/01._introduction.md[Introduction]
 
