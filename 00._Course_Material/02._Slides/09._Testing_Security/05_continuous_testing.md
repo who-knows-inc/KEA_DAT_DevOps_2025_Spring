@@ -28,9 +28,10 @@
 - Integration tests
 - Smoke tests
 
-**Continuous Development (CD):**
+**Continuous Deployment (CD):**
 - Production tests
 - Monitoring
+- Smoke tests
 
 Result is: **Continuous Testing**
 
@@ -256,7 +257,7 @@ Let's follow the tutorial.
 
 https://playwright.dev/docs/intro
 
-Install:
+Install in an existing folder:
 
 ```bash
 $ npm init playwright@latest
@@ -301,13 +302,21 @@ $ npx playwright codegen
 const { test, expect } = require('@playwright/test');
 
 test('can search', async ({ page }) => {
-    await page.goto('http://localhost:8080/');
+    await page.goto('/');
     
     await page.getByPlaceholder('Search...').fill('this is a search test');
     await page.getByRole('button', { name: 'Search' }).click();
     
-    expect(page.url()).toBe('http://localhost:8080/?q=this+is+a+search+test');
+    expect(page.url()).toContain('/?q=this+is+a+search+test');
 });
+```
+
+Since you have defined baseURL in the config, `/` will get the base URL appended. You could also write the full URL. 
+
+Try it out:
+
+```bash
+$ npx playwright test
 ```
 
 ---
@@ -325,6 +334,12 @@ Play the test in `inspector` mode:
 ```bash
 $ PWDEBUG=1 npx playwright test --project=chromium
 ```
+
+---
+
+# WhoKnows Variations - E2E testing
+
+https://github.com/who-knows-inc/whoknows_variations/tree/end-to-end_testing
 
 ---
 

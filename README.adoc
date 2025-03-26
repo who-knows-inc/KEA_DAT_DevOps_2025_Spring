@@ -426,9 +426,7 @@ link:00._Course_Material/02._Slides/09._Testing_Security/03._docker_firewalls.md
 
 link:00._Course_Material/02._Slides/09._Testing_Security/04._security_in_github.md[Security in GitHub]
 
-link:00._Course_Material/02._Slides/09._Testing_Security/05._security_in_cloud.md[Security in Cloud]
-
-link:00._Course_Material/02._Slides/09._Testing_Security/06_continuous_testing.md[Continuous Testing]
+link:00._Course_Material/02._Slides/09._Testing_Security/05_continuous_testing.md[Continuous Testing]
 a|
 link:00._Course_Material/01._Assignments/09._Testing_Security/01._Before/registering_domain_onecom.md[Registering Domain: one.com]
 
