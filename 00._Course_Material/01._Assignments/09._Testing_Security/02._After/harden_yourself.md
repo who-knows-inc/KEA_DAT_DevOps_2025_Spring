@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Here are a bunch of resources. It is up to your grouop to decide which ones make sense to use.
+Here are a bunch of resources. It is up to your group to decide which ones make sense to use.
 
 For the first category of tools, consider how you can make them part of your CI/CD pipeline.
 

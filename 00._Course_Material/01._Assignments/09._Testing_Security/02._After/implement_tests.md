@@ -8,7 +8,7 @@ Implement various types of tests as part of your development process.
 
 ---
 
-# When to implement 
+# Where to implement 
 
 Notice that it says to implement tasks as part of your development process; not just CI/CD.
 
@@ -20,15 +20,13 @@ Tests can also run after a new version of the application has been deployed.
 
 # What to implement
 
-It is required to implement:
+It is optional to implement unit tests. It would be nice to implement a few just to see how it works in your chosen language. 
 
-- Unit tests
-
-- Integration tests. For inspiration to end-to-end tests with Playwright check out https://github.com/who-knows-inc/whoknows_variations/tree/end-to-end_testing
+It is required to implement integration tests. This could be mock  tests. End-to-end tests are a subset of integration tests. For inspiration regarding how to make it work with Playwright check out https://github.com/who-knows-inc/whoknows_variations/tree/end-to-end_testing
 
 Feel free to implement other types of tests as well.
 
-Please consider all types of test and remember why you decided that they were not relevant to the project.
+You must consider all types of test and remember why you decided that they were not relevant to the project.
 
 ---
 
