@@ -307,15 +307,18 @@ $ npx playwright codegen
 # Example of a search test
 
 ```javascript
-const { test, expect } = require('@playwright/test');
+import { defineConfig, devices } from '@playwright/test';
 
-test('can search', async ({ page }) => {
-    await page.goto('/');
-    
-    await page.getByPlaceholder('Search...').fill('this is a search test');
-    await page.getByRole('button', { name: 'Search' }).click();
-    
-    expect(page.url()).toContain('/?q=this+is+a+search+test');
+export default defineConfig({
+	testDir: './tests',
+	use: {
+		baseURL: 'http://localhost:8080',
+	},
+	projects: [
+		{ name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+		{ name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+		{ name: 'webkit', use: { ...devices['Desktop Safari'] } },
+	],
 });
 ```
 
@@ -334,7 +337,7 @@ $ npx playwright test
 Play the text in headed mode:
 
 ```bash
-$ npx playwright test --headed --project=chromium
+$ npx playwright test --headed
 ```
 
 Play the test in `inspector` mode:
@@ -343,7 +346,7 @@ Play the test in `inspector` mode:
 $ PWDEBUG=1 npx playwright test --project=chromium
 ```
 
---- 
+---
 
 # Generated report page
 
