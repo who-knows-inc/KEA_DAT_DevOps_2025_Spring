@@ -335,6 +335,15 @@ Play the test in `inspector` mode:
 $ PWDEBUG=1 npx playwright test --project=chromium
 ```
 
+--- 
+
+# Generated report page
+
+Playwright creates an HTML page with the result of the tests. 
+
+It can be found in `playwright-report` in root. 
+
+
 ---
 
 # WhoKnows Variations - E2E testing
