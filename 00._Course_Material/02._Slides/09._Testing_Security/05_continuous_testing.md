@@ -53,7 +53,7 @@ You are not expected to write all the types of tests mentioned in the previous s
 
 # Shift left vs. Shift right
 
-<img src="./assets_testing/shift_left_vs._shift_right.png" alt="shift left vs. shift right">
+<img src="./assets_continuous_testing/shift_left_vs._shift_right.png" alt="shift left vs. shift right">
 
 [Source](https://www.dynatrace.com/news/blog/what-is-shift-left-and-what-is-shift-right/)
 
@@ -161,7 +161,7 @@ Security testing, for example, is often about testing the sad paths.
 
 # The Test Pyramid
 
-<img src="./assets_testing/test_pyramid.png" alt="test pyramid" style="height: 50vh;">
+<img src="./assets_continuous_testing/test_pyramid.png" alt="test pyramid" style="height: 50vh;">
 
 [Source: Twillio](https://www.twilio.com/en-us/blog/unit-integration-end-to-end-testing-difference)
 
@@ -232,6 +232,14 @@ For now know that there are multiple tools for end-to-end testing such as:
 # A/B testing
 
 First example of a *shift-right* test so far. 
+
+<img src="./assets_continuous_testing/ab_testing.png" style="height: 42vh;" alt="a/b test">
+
+[Source](https://trymata.com/blog/2021/06/11/moderated-testing-vs-ab-testing-whats-the-difference/)
+
+---
+
+# A/B testing template
 
 How to approach A/B testing (based on a real-life case from to The DevOps Handbook):
 
