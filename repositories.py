@@ -2,8 +2,8 @@ GROUP_REPOS = [
         {
             "name": "DebuggerDemons",
             "gitLinks": ["https://github.com/Debugger-Demons/whoknows.git"],
-            "backend": "http://195.249.188.98:18080/",
-            "frontend": "http://195.249.188.98:18080/",
+            "backend": "http://34.32.54.82:8080/",
+            "frontend": "http://34.32.54.82:8080/",
             "monitoring": "",
             "stack": ["Rust, Actix"],
             "documentation": [""],
