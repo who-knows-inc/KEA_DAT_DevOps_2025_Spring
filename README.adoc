@@ -497,6 +497,8 @@ link:00._Course_Material/01._Assignments/10._Databases_ORM_Data_scraping_Web_cra
 link:00._Course_Material/01._Assignments/10._Databases_ORM_Data_scraping_Web_crawling/02._After/upgrade_the_database.md[Upgrade the database]
 
 link:00._Course_Material/01._Assignments/10._Databases_ORM_Data_scraping_Web_crawling/02._After/let_them_search.md[Let them search]
+
+link:00._Course_Material/01._Assignments/10._Databases_ORM_Data_scraping_Web_crawling/02._After/logging.md[Logging]
 a|
 Understand choosing a database setup based on the application's needs. Knows when not to use an ORM.
 

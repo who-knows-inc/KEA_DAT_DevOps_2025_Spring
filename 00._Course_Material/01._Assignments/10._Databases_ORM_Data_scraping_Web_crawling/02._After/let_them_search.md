@@ -4,6 +4,8 @@ Users are crazy about your product and wish that they could search for more cont
 
 **Type**: Group work
 
+**Deadline**: This is part of a trilogy (logging + scraping + lecture on logging). Spend the first week considering it. Then logging. Then scraping.  
+
 **Motivation**: Learn to scrape and index webpages. 
 
 ---
@@ -22,4 +24,3 @@ You should log the searches to see what the users are searching for.
 
 You will not be evaluated by the scale of your indexing operation but the scalability of your solution. 
 
-Create a proof of concept that could last a long time. Therefore, using Github Actions schedules is not a good idea because there are multiple limitations.
