@@ -22,7 +22,7 @@ Scrape and index webpages by adding them to a database. It doesn't have to be th
 
 Here is a proposed timeline:
 
-1. **Week 1**: Brain storm how to webscrape. Try out different tools. Agree on a tool.
+1. **Week 1**: Brainstorm how to webscrape. Try out different tools. Agree on a tool.
 
 2. **Week 2**: Log to see what the users are searching for.
 
