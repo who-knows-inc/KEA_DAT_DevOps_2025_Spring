@@ -8,7 +8,7 @@ Monitors will run in Postman Cloud and send you emails if the tests fail.
 
 ## Create collection
 
-You must create a collection in Postman first. A collection is a group of requests. 
+You must create a collection in Postman first. A collection is a group of requests.
 
 <img src="./assets_postman_monitoring/create_collection.png">
 
@@ -38,7 +38,7 @@ Highlight the URL and tool tip will pop up with a `Set as variable` button. Clic
 
 <img src="./assets_postman_monitoring/set_variables.png">
 
-Create a BASE_URL and PORT variable and set the scope to the collection. 
+Create a BASE_URL and PORT variable and set the scope to the collection.
 
 ---
 
@@ -54,14 +54,13 @@ Choose the `Variables` tab and edit the variables.
 
 ## Create tests
 
-On the request page, click on the `Tests` tab:
+On the request page, click on the `Post-response` in the `Scripts` tab:
 
 <img src="./assets_postman_monitoring/create_tests.png">
 
 You can optionally watch the API test segment of the video below to learn more:
 
-[![Postman Beginner's course](http://img.youtube.com/vi/VywxIQ2ZXw4/0.jpg)](https://youtu.be/VywxIQ2ZXw4?t=3772)
----
+## [![Postman Beginner's course](http://img.youtube.com/vi/VywxIQ2ZXw4/0.jpg)](https://youtu.be/VywxIQ2ZXw4?t=3772)
 
 ## Write a test
 
@@ -69,7 +68,7 @@ In the snippets on the right side select `Status code: Code is 200`;
 
 ```javascript
 pm.test("Status code is 200", function () {
-    pm.response.to.have.status(200);
+  pm.response.to.have.status(200);
 });
 ```
 
@@ -87,17 +86,17 @@ Send the request and select the `Test Result` tab in the lower bottom (the respo
 
 ```javascript
 pm.test("Status code is 200", function () {
-    pm.response.to.have.status(200);
+  pm.response.to.have.status(200);
 });
 
 pm.test("Response time is less than 200ms", function () {
-    pm.expect(pm.response.responseTime).to.be.below(200);
+  pm.expect(pm.response.responseTime).to.be.below(200);
 });
 
 pm.test("Response body is present", function () {
-    const body = pm.response.json();
-    pm.expect(body).to.include("data");
-    pm.expect(body.data).to.be.an("array");
+  const body = pm.response.json();
+  pm.expect(body).to.include("data");
+  pm.expect(body.data).to.be.an("array");
 });
 ```
 
@@ -143,7 +142,7 @@ Click on the `Run` button in the runner (bottom right).
 
 You can schedule a run to run at a specific time and send you emails if the tests fail.
 
-Postman cloud runs the tests for you and you don't have to setup a server. 
+Postman cloud runs the tests for you and you don't have to setup a server.
 
 <img src="./assets_postman_monitoring/schedule_run.png">
 
@@ -164,7 +163,7 @@ Or you could immediately role back in production in case of a failed test.
 
 ## Schedule CI/CD - II
 
-Click on `Configure command` and you will be able to get a snippet and instruction on how to add the code to your CI/CD pipeline. 
+Click on `Configure command` and you will be able to get a snippet and instruction on how to add the code to your CI/CD pipeline.
 
 <img src="./assets_postman_monitoring/copy_CICD_code.png"> -->
 
@@ -176,7 +175,7 @@ Click on `Configure command` and you will be able to get a snippet and instructi
 
 ## Enable Monitors
 
-Click on the icon below `history` in the left side and enable Monitors. 
+Click on the icon below `history` in the left side and enable Monitors.
 
 ---
 
@@ -212,4 +211,4 @@ Now that you have tried to create a monitor for a single test, you can consider 
 
 https://learning.postman.com/docs/tests-and-scripts/write-scripts/intro-to-scripts/
 
-As an example, if getting a status `200` for all requests is expected then you can put the test as a `Post-response` instead of pasting it onto each endpoint. 
+As an example, if getting a status `200` for all requests is expected then you can put the test as a `Post-response` instead of pasting it onto each endpoint.
