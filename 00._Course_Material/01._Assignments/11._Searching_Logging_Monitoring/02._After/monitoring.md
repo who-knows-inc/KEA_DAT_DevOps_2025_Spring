@@ -8,7 +8,9 @@
 
 ## Requirements
 
-You have already setup health monitoring with Postman monitoring and whil health monitoring of the system is fine, your focus should be to gather telemetry from users. Take on the role as a DevOps detective that asks questions in order to investigate how your system is being used and how it is bringing value to the users.
+You have already setup health monitoring with Postman monitoring and while health monitoring of the system is fine, your focus should be to gather telemetry from users. Take on the role as a DevOps detective that asks questions in order to investigate how your system is being used and how it is bringing value to the users.
+
+During the exam I will ask you to explain why you choose to monitor the metrics that you did. Though only a single person could set up monitoring I suggest that each group starts this assignment with a meeting where you discuss what to monitor for.
 
 It's an impressive sign if your setup makes you realize something that helps you improve your system. Feel free to bring it up in the final presentation.
 
@@ -74,4 +76,4 @@ To be on the safe side, take screenshots of your dashboards during the semester 
 
 ## After thought
 
-It is sufficient to setup only one dashboard for the course but beware that in companies the better practice is to create a dashboard per service.
+It is sufficient to setup only one dashboard for the course but beware that in companies the better practice is to create a dashboard per service (frontend, backend, database etc.).

@@ -1,18 +1,10 @@
-# Try ELK logging
+# [Optional] Try ELK logging
 
 Try out logging with the ELK stack.
 
 **Type**: Individual
 
----
-
-## Course requirement
-
-To lighten the course load logging is **NOT** a requirement for this course. 
-
-If your group implements logging, it will be seen as a bonus but you will not be punished for not implementing it.
-
-Instead, try it out individually to get an idea. 
+**Motivation**: This is a quick task. Just run the docker-compose up and check it out.
 
 ---
 
