@@ -14,7 +14,7 @@ GROUP_REPOS = [
             "name": "DevOpsDynamite",
             "gitLinks": ["https://github.com/DevOpsDynamite/DynaSearch"],
             "backend": "http://dynasearch.dk/",
-            "frontend": "http://dynasearch.dk/,
+            "frontend": "http://dynasearch.dk/",
             "monitoring": "",
             "stack": ["Ruby", "Sinatra", "SQLite", "HTML/CSS/JS"],
             "documentation": [],
