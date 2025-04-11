@@ -530,7 +530,7 @@ link:00._Course_Material/02._Slides/11._Searching_Logging_Monitoring_Serverless/
 link:00._Course_Material/02._Slides/11._Searching_Logging_Monitoring_Serverless/05._serverless_functions.md[Serverless]
 // Serverless
 
-link:00._Course_Material/02._Slides/11._Searching_Logging_Monitoring_Serverless/06._web_crawling_architectural_decisions.md[06._web_crawling_architectural_decisions]
+link:00._Course_Material/02._Slides/11._Searching_Logging_Monitoring_Serverless/06._web_crawling_architectural_decisions.md[Web Crawling - Architectural Decisions]
 // Web Crawling - Architectural Decisions
 
 a|
