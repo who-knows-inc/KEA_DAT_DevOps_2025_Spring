@@ -570,7 +570,7 @@ Can argue why a monitoring setup should not run on the same server as the applic
 
 
 | 12
-| April 18th
+| April 25th
 a|
 // link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/01._introduction.md[Introduction]
 Introduction
