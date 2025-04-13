@@ -67,6 +67,8 @@ $ choco install python2
 
 ## Can do later
 
+You can do the following before the semester start or later on. Once the semester start there are many assignments of higher priority so consider postponing this section.
+
 #### Install Postman and create account
 
 https://www.postman.com/
@@ -114,6 +116,14 @@ https://azure.microsoft.com/en-us/free/students/
 
 [Guide with screenshots](./how_to_renew_azure_for_students/how_to_renew_azure_for_students.md)
 
+
+#### `az` (Azure CLI)
+
+We won't use it until much later in the course. Look here to find how to install it for your OS:
+
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
+
+Successful criteria: Can run `az --version` in the terminal that you use. So if you install it for Powershell but always use Git Bash for instance, then you might consider a different installation method.
 
 ---
 
