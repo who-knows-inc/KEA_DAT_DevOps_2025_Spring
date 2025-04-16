@@ -7,6 +7,18 @@ This is not an assignment, but a document for odd behavior experienced in Azure.
 
 ---
 
+### Can't work with Azure external to Azure
+
+**Issue**: Getting problems with Service Principal authentication.
+
+**Symptoms**: Can't authenticate Azure in GitHub Actions or can't work with others in the same Azure portal.
+
+**Cause**: KEA has checked off the ability to allow external interaction with Azure. This is done because of concerns for GDPR. It takes a checkbox in order to enable it, but it requires a thorough security assessment also.
+
+**Resolution**: There's nothing that can be done as the security department is blocking us.
+
+---
+
 ### The VM was shut down 
 
 **Issue**: VM was shut down by Azure.
