@@ -2,9 +2,6 @@
 
 This is not an assignment, but a document for odd behavior experienced in Azure.
 
-**Type**: Individual
-
-
 ---
 
 ### Can't work with Azure external to Azure

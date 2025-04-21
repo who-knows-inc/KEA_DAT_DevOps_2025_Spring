@@ -38,6 +38,14 @@ I suggest that you keep the legacy code alongside with the new codebase as you s
 
 ---
 
+## Strangler fig pattern
+
+[The strangler fig pattern](https://en.wikipedia.org/wiki/Strangler_fig_pattern) considers how to gradually replace old code with new code in incremental steps. This ensures no downtime. 
+
+You are not expected to do this but consider how you would've since this is a common approach in the industry.
+
+---
+
 ## The OpenAPI specification
 
 You must adhere to the provided [OpenAPI specification](./openapi.json) exactly.
