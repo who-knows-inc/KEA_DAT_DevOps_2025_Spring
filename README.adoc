@@ -597,6 +597,8 @@ link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/06._terraform_han
 link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/07._terraform_limitations_problems.md[Terraform: Limitations / Problems]
 // Terraform: Limitations / Problems
 
+link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/08._terraform_github_provider.md[Terraform - GitHub Provider]
+// Terraform - GitHub Provider
 a|
 link:00._Course_Material/01._Assignments/12._Infrastructure_as_Code/01._Before/improve_accessibility.md[Improve Accessibility]
 
