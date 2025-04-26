@@ -686,23 +686,24 @@ a|
 | 15
 | May 16th
 a|
-Finish the report. 
-
-Prepare the exam presentation.
+Finish the report.
 a|
 No lecture.
 a|
 No lecture.
+a|
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 | 16
 | May 23rd
 a|
+Prepare the exam presentation.
 a|
 No lecture.
 a|
 No lecture.
+a|
 
 
 |===
