@@ -588,16 +588,13 @@ link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/03._iac_configura
 link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/04._imperative_vs_declarative.md[Imperative vs Declarative]
 // Imperative vs Declarative
 
-link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/05._terraform_get_started.md[Terraform - Get Started]
+link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/05._terraform_hands-on.md[Terraform - Get Started]
 // Terraform - Get Started
 
-link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/06._terraform_hands-on.md[Terraform - Hands-on]
-// Terraform - Hands-on
-
-link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/07._terraform_limitations_problems.md[Terraform: Limitations / Problems]
+link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/06._terraform_limitations_problems.md[Terraform: Limitations / Problems]
 // Terraform: Limitations / Problems
 
-link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/08._terraform_github_provider.md[Terraform - GitHub Provider]
+link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/07._terraform_github_provider.md[Terraform - GitHub Provider]
 // Terraform - GitHub Provider
 a|
 link:00._Course_Material/01._Assignments/12._Infrastructure_as_Code/01._Before/improve_accessibility.md[Improve Accessibility]
