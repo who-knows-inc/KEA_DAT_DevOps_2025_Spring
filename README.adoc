@@ -588,7 +588,7 @@ link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/03._iac_configura
 link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/04._imperative_vs_declarative.md[Imperative vs Declarative]
 // Imperative vs Declarative
 
-link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/05._terraform_hands-on.md[Terraform - Get Started]
+link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/05._terraform_hands-on.md[Terraform - Hands-on]
 // Terraform - Get Started
 
 link:00._Course_Material/02._Slides/12._Infrastructure_as_Code/06._terraform_limitations_problems.md[Terraform: Limitations / Problems]
@@ -617,32 +617,32 @@ Can run basic commands in Terraform to provision infrastructure.
 | 13
 | May 2nd
 a|
-// link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/01._introduction.md[Introduction]
-Introduction
+link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/01._introduction.md[Introduction]
+// Introduction
 
-// link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/02._deploying_infrastructure_configuration_managment.md[Deploying Infrastructure / Configuration Managment]
-Deploying Infrastructure / Configuration Managment
+link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/02._deploying_infrastructure_configuration_managment.md[Deploying Infrastructure / Configuration Managment]
+// Deploying Infrastructure / Configuration Managment
 
-// link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/03._deployment_strategies.md[Deployment Strategies]
-Deployment Strategies
+link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/03._deployment_strategies.md[Deployment Strategies]
+// Deployment Strategies
 
-// link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/04._orchestration.md[Orchestration]
-Orchestration
+link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/04._orchestration.md[Orchestration]
+// Orchestration
 
-// link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/05._kubernetes.md[Kubernetes]
-Kubernetes
+link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/05._kubernetes.md[Kubernetes]
+// Kubernetes
 
-// link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/06._kubernetes_hands-on.md[Kubernetes - Hands-on]
-Kubernetes - Hands-on
+link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/06._kubernetes_hands-on.md[Kubernetes - Hands-on]
+// Kubernetes - Hands-on
 
-// link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/07._resilience.md[Resilience]
-Resilience
+link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/07._resilience.md[Resilience]
+// Resilience
 
-// link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/08._maintenance.md[Maintenance]
-Maintenance
+link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/08._maintenance.md[Maintenance]
+// Maintenance
 
-// link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/09._course_conclusion.md[Course Conclusion]
-Course Conclusion
+link:00._Course_Material/02._Slides/13._Deployment_Strategies_Orchestration_Maintenance/09._course_conclusion.md[Course Conclusion]
+// Course Conclusion
 
 a|
 link:00._Course_Material/01._Assignments/13._Deployment_Strategies_Orchestration_Maintenance/01._Before/create_a_dot_github_repository_for_your_organisation.md[Create .github for your Organisation]
