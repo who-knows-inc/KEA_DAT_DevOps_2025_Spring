@@ -13,7 +13,7 @@ resource "github_repository" "repo" {
   auto_init          = false
   license_template   = "mit"
   gitignore_template = "Python"
-  archive_on_destroy = false
+  archive_on_destroy = true
 }
 
 resource "github_branch_default" "default" {
