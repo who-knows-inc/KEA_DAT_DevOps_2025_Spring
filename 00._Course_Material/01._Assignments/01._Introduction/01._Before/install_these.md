@@ -65,9 +65,33 @@ $ choco install python2
 
 ---
 
-## Can do later
+## Must do before week 3
 
 You can do the following before the semester start or later on. Once the semester start there are many assignments of higher priority so consider postponing this section.
+
+#### GitHub Student Developers Pack
+
+Check the GitHub Student Developers Pack: https://education.github.com/pack. For instance, you can get some credit for DigitalOcean as an alternative to Azure.
+
+There are benefits to getting a GitHub Pro account. 
+
+
+#### Azure
+
+Set up or renew your Azure for students account. Look into Azure for Students where you will get free credit.
+
+https://azure.microsoft.com/en-us/free/students/
+
+[Guide with screenshots](./how_to_renew_azure_for_students/how_to_renew_azure_for_students.md)
+
+
+#### SSH keys
+
+Many of you generated a SSH key pair last semester. If you have lost it then generate a new one. Generate a RSA key pair. Specifically, RSA, will be required for Terraform later in the course.
+
+---
+
+## Must do before week 4
 
 #### Install Postman and create account
 
@@ -88,12 +112,6 @@ Verify that you have Node.js installed.
 $ node --version
 ```
 
-
-#### SSH keys
-
-Many of you generated a SSH key pair last semester. If you have lost it then generate a new one.
-
-
 #### Docker
 
 Have Docker Desktop installed and be ready to work with Docker. Success criteria: Can run `docker --version` in the teminal. 
@@ -101,34 +119,31 @@ Have Docker Desktop installed and be ready to work with Docker. Success criteria
 Install Docker: https://www.docker.com/products/docker-desktop/.
 
 
-#### GitHub Student Developers Pack
+---
 
-Check the GitHub Student Developers Pack: https://education.github.com/pack. For instance, you can get some credit for DigitalOcean as an alternative to Azure.
-
-There are benefits to getting a GitHub Pro account. 
-
-
-#### Azure
-
-Set up or renew your Azure for students account. Look into Azure for Students where you will get free credit.
-
-https://azure.microsoft.com/en-us/free/students/
-
-[Guide with screenshots](./how_to_renew_azure_for_students/how_to_renew_azure_for_students.md)
-
+## Can do before week 10
 
 #### `az` (Azure CLI)
 
-We won't use it until much later in the course. Look here to find how to install it for your OS:
+Install Azures CLI `az`. Look here to find how to install it for your OS:
 
 https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
 
+OR a perhaps a better command to install for Windows here:
+
+https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build
+
 Successful criteria: Can run `az --version` in the terminal that you use. So if you install it for Powershell but always use Git Bash for instance, then you might consider a different installation method.
+
+#### Terraform
+
+Install Terraform:
+
+https://developer.hashicorp.com/terraform/install?product_intent=terraform
 
 ---
 
 ## Optional
-
 
 #### Sqlite3 CLI
 

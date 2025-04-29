@@ -654,6 +654,8 @@ link:00._Course_Material/01._Assignments/13._Deployment_Strategies_Orchestration
 
 link:00._Course_Material/01._Assignments/13._Deployment_Strategies_Orchestration_Maintenance/02._After/take_down_your_system.md[Take Down Your System]
 
+link:00._Course_Material/01._Assignments/13._Deployment_Strategies_Orchestration_Maintenance/02._After/consider_a_deployment_strategy.md[Consider a deployment strategy]
+
 **The simulation is taken down**
 a|
 Knows different deployment strategies and how they work.

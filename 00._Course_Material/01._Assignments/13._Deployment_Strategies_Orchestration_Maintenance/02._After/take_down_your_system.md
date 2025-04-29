@@ -17,3 +17,12 @@ Since the exam could be much later than the last lecture and because of limited 
 But even if credit is no problem, you could still try to recreate the entire setup from scratch in parallel to the system that you have running.
 
 Doing it a second time is how you go from vaguely remembering and forgetting over time to mastery. 
+
+---
+
+## **Important** if you used the `one.com` coupon
+
+Delete your domain at `one.com` after the exams. 
+
+At some point afterwards, they will send you an invoice if you continue to use the domain and give you a small window to cancel the domain. This should usually not be a problem, but you might miss the mail to your KEA account while you are in the middle of your internships.
+

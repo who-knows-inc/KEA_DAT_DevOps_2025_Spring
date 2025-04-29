@@ -46,6 +46,13 @@ If you are interested, you can learn more about how SonarQube calculates metrics
 
 3. Select the repositories that you want to assess.
 
+---
+
+## DeepSource
+
+1. Navigate to https://deepsource.io/ and click the `Quickstart with` + the GitHub button.
+
+2. Authorize deepsource.io and follow the instructions to set it up.
 
 ---
 
