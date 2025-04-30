@@ -26,7 +26,7 @@ GROUP_REPOS = [
             "gitLinks": ["https://github.com/DevOops23b/whoknows.git", "https://github.com/DevOops23b/GoSearch.git"],
             "backend": "http://40.91.244.170:8080",
             "frontend": "http://40.91.244.170:8080",
-            "monitoring": "",
+            "monitoring": "http://40.127.185.185:3000/",
             "stack": ["GO m. Gorilla", "HTML, CSS"],
             "documentation": [""],   
         },
