@@ -1,4 +1,15 @@
 
+# File: ICON_LICENSE.md
+
+Silk icon set 1.3 by Mark James <mjames@gmail.com>
+
+http://www.famfamfam.com/lab/icons/silk/
+
+License: [CC-BY-2.5](https://creativecommons.org/licenses/by/2.5/)
+or [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/)
+
+
+
 # File: create_an_issue_template.md
 
 ## Create an issue template
@@ -1496,6 +1507,29 @@ We will run it again together in class.
 
 
 
+# File: consider_a_deployment_strategy.md
+
+# Consider a Deployment Strategy
+
+**Type**: Group work
+
+**Motivation**: In your current setup, deploying would mean that your system is down while Docker restarts the containers. Consider a better deployment strategy.
+
+---
+
+## Agree on a deployment strategy
+
+Discuss with your group the various deployment strategies from the lecture or other sources.
+
+Consider how to improve the current setup to achieve high availability, fault tolerance and scalability.
+
+Feel free to bring this up during your exam presentation and be ready to answer what considerations informed your decision.
+
+**To be clear**: It is not expected that you implement this in your project.
+
+
+
+
 # File: take_down_your_system.md
 
 # [Optional] Take down your system
@@ -1517,6 +1551,15 @@ Since the exam could be much later than the last lecture and because of limited 
 But even if credit is no problem, you could still try to recreate the entire setup from scratch in parallel to the system that you have running.
 
 Doing it a second time is how you go from vaguely remembering and forgetting over time to mastery. 
+
+---
+
+## **Important** if you used the `one.com` coupon
+
+Delete your domain at `one.com` after the exams. 
+
+At some point afterwards, they will send you an invoice if you continue to use the domain and give you a small window to cancel the domain. This should usually not be a problem, but you might miss the mail to your KEA account while you are in the middle of your internships.
+
 
 
 
@@ -1730,6 +1773,13 @@ If you are interested, you can learn more about how SonarQube calculates metrics
 
 3. Select the repositories that you want to assess.
 
+---
+
+## DeepSource
+
+1. Navigate to https://deepsource.io/ and click the `Quickstart with` + the GitHub button.
+
+2. Authorize deepsource.io and follow the instructions to set it up.
 
 ---
 
@@ -3152,9 +3202,33 @@ $ choco install python2
 
 ---
 
-## Can do later
+## Must do before week 3
 
 You can do the following before the semester start or later on. Once the semester start there are many assignments of higher priority so consider postponing this section.
+
+#### GitHub Student Developers Pack
+
+Check the GitHub Student Developers Pack: https://education.github.com/pack. For instance, you can get some credit for DigitalOcean as an alternative to Azure.
+
+There are benefits to getting a GitHub Pro account. 
+
+
+#### Azure
+
+Set up or renew your Azure for students account. Look into Azure for Students where you will get free credit.
+
+https://azure.microsoft.com/en-us/free/students/
+
+[Guide with screenshots](./how_to_renew_azure_for_students/how_to_renew_azure_for_students.md)
+
+
+#### SSH keys
+
+Many of you generated a SSH key pair last semester. If you have lost it then generate a new one. Generate a RSA key pair. Specifically, RSA, will be required for Terraform later in the course.
+
+---
+
+## Must do before week 4
 
 #### Install Postman and create account
 
@@ -3175,12 +3249,6 @@ Verify that you have Node.js installed.
 $ node --version
 ```
 
-
-#### SSH keys
-
-Many of you generated a SSH key pair last semester. If you have lost it then generate a new one.
-
-
 #### Docker
 
 Have Docker Desktop installed and be ready to work with Docker. Success criteria: Can run `docker --version` in the teminal. 
@@ -3188,34 +3256,31 @@ Have Docker Desktop installed and be ready to work with Docker. Success criteria
 Install Docker: https://www.docker.com/products/docker-desktop/.
 
 
-#### GitHub Student Developers Pack
+---
 
-Check the GitHub Student Developers Pack: https://education.github.com/pack. For instance, you can get some credit for DigitalOcean as an alternative to Azure.
-
-There are benefits to getting a GitHub Pro account. 
-
-
-#### Azure
-
-Set up or renew your Azure for students account. Look into Azure for Students where you will get free credit.
-
-https://azure.microsoft.com/en-us/free/students/
-
-[Guide with screenshots](./how_to_renew_azure_for_students/how_to_renew_azure_for_students.md)
-
+## Can do before week 10
 
 #### `az` (Azure CLI)
 
-We won't use it until much later in the course. Look here to find how to install it for your OS:
+Install Azures CLI `az`. Look here to find how to install it for your OS:
 
 https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
 
+OR a perhaps a better command to install for Windows here:
+
+https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build
+
 Successful criteria: Can run `az --version` in the terminal that you use. So if you install it for Powershell but always use Git Bash for instance, then you might consider a different installation method.
+
+#### Terraform
+
+Install Terraform:
+
+https://developer.hashicorp.com/terraform/install?product_intent=terraform
 
 ---
 
 ## Optional
-
 
 #### Sqlite3 CLI
 
@@ -10067,6 +10132,1567 @@ Ask questions, understand the data and improve the product.
 
 
 
+# File: 03._deployment_strategies.md
+
+<div class="title-card">
+    <h1>Deployment Strategies</h1>
+</div>
+
+---
+
+# Goal: Deploying with zero downtime
+
+Discuss in pairs/groups.
+
+*How would you achieve it?*
+
+---
+
+# Thinks to consider when deploying
+
+*What are the considerations to make when choosing a deployment strategy?*
+
+---
+
+# Thinks to consider when deploying
+
+- **Zero downtime**
+
+- **Scalability**
+
+- **Downtime tolerance**
+
+- **Rollback plan**
+
+- **Cost efficiency**
+
+
+---
+
+# Big Bang Deployment
+
+Deploying the entire application at once.
+
+*Why do you think it's called that?*
+
+*What problems could occur with this approach?*
+
+
+---
+
+# Topic: Colorful deployment strategies
+
+Images without a source in the next couple of slides are from this article:
+
+https://devopsbootcamp.org/8-deployment-strategies-explained-and-compared/
+
+But the material is from various sources.
+
+---
+
+# Blue-Green deployment
+
+Two identical environments, where only one is "live" at any time. Let's say that blue is "live". 
+
+In that case, use the blue environment as your staging environment.
+
+Once all tests in staging pass, you can switch the traffic to green.
+
+This additionally makes it much easier to roll back if something goes wrong.
+
+<img src="./assets_deployment_strategies/blue-green_deployment.gif" alt="blue-green deployment" style="height: 30vh; background-color: white;">
+
+
+---
+
+# Blue-Green deployment and databases
+
+There are two approaches for how to handle the database
+
+1. **Create two databases** (a blue and a green). If we switch from blue to green, we make blue read-only, create a back-up and restore it onto green. 
+
+2. **Decouple the database** changes from application changes: 
+
+<img src="./assets_deployment_strategies/blue-green_deployment_with_database.png" alt="blue-green deployment" style="height: 30vh; background-color: white;">
+
+[Source](https://dev.to/semaphore/what-is-blue-green-deployment-1ong)
+
+---
+
+# Canary deployment
+
+Gradually roll out a new version to a small subset of users before rolling it out to the entire infrastructure. 
+
+Observe if the system is healthy, otherwise roll back.
+
+The name comes from the old usage of canaries in coal mining to test air quality. If the canary died, it was time to get out of the mine.
+
+<div style="display: flex; gap: 10px; align-items: center;">
+  <img src="./assets_deployment_strategies/canary_mine.png" alt="canary deployment mine" style="width: 20vw;">
+  <img src="./assets_deployment_strategies/canary_deployment.gif" alt="canary deployment" style="width: 28vw;">
+</div>
+
+---
+
+# Cluster immune system
+
+An expanded version of the canary deployment strategy that **automates** a rolling back mechanism. 
+
+If health checks and monitors fail within a certain margin it will roll back. 
+
+---
+
+# Rolling updates
+
+Gradual roll out of the infrastructure (instances) with the new version.
+
+Health checks are performed and if it is healthy, more instances are flipped to the new version.
+
+<img src="./assets_deployment_strategies/rolling_updates.gif" alt="rolling updates" style="height: 45vh;">
+
+---
+
+# Canary deployment vs. rolling updates
+
+Canary deployment can still be considered a type of rolling update. But there are key differences. 
+
+Unlike canary deployment which is focused on users, rolling updates are focused on infrastructure.
+
+Canary deployment will try for a subset of users and if it is successful roll out the entire change. Rolling updates will do it in small increment. 
+
+---
+
+# Rolling updates vs. ramped deployment
+
+Rolling updates deploy to one server at a time in a round-robin fashion. 
+
+Ramped deployment deploys to an increasingly higher percentage of servers every time.
+
+<img src="./assets_deployment_strategies/ramped_deployment_rolling_deployment.gif" alt="rolling ramped updates" style="height: 20vh;">
+
+---
+
+# Impact of update strategies on the consistency of the results that the users see
+
+* With **blue-green** they never see inconsistent results
+
+* With **rolling-updates** they might see different results in different calls
+
+*Can you figure out why that is the case with rolling updates?*
+
+---
+
+# Shadow Deployment / Dark Launching
+
+**Backend  Example**: Requests are duplicated and additionally sent to a shadow API in order to assess how it handles the requests.
+
+<img src="./assets_deployment_strategies/shadow_deployment_API.gif" alt="shadow deployment api">
+
+
+**Frontend Example**: Facebook does a thing that they call **Feature Toggling**. For instance, they deploy invincible features that exist in the DOM but are not visible to users just to see how it holds up. Feautures can be released for months without users seeing them but they are on the production servers. 
+
+---
+
+# Case: How Facebook Releases 
+
+Facebook has a dedicated *release team* and they use the internal tool - Facebook Gatekeeper - to release to specific groups. 
+
+**Facebook Gatekeeper** can target a release to users in certain demographics / regions.
+
+They have a 3 step release model. Release to:
+
+- **A1 group**: production servers that only serve internal employees.
+
+- **A2 group**: production servers that only serve a small percentage  of  customers  and  are  deployed  when certain  acceptance  criteria  have  been  met  (either automated or manual).
+
+- **A3 group**:  the  rest  of  the  production  servers,  which are  deployed  after  the  software  running  in  the  A2 cluster meets certain acceptance criteria
+
+---
+
+# Other internal tools
+
+Facebook GateKeeper has just been mentioned. 
+
+**Etsy Feature API** and **Netflix Archaius library** are other famous examples of tools used for deployment strategies that can achieve many of the techniques mentioned so far.
+
+
+
+
+# File: 09._course_conclusion.md
+
+
+
+<div class="title-card">
+    <h1>DevOps course conclusion</h1>
+</div>
+
+---
+
+# The simulation is over!
+
+
+---
+
+# The repo will be made unavailable after the first exam
+
+Remember to fork the repo if you want it.
+
+---
+
+# Learning Goals
+
+Remember to check the learning goals for the course and make sure that you have achieved them.
+
+It's a good measure of my expectation for the exam.
+
+---
+
+# Let's look at the exam report requirements and exam requirements
+
+They can be found as links at the top of the semester plan.
+
+
+---
+
+# Do you agree with this? React to it only if you do
+
+https://github.com/orgs/community/discussions/114734
+
+---
+
+# Thank you, Contributors!
+
+<img src="./assets_course_conclusion/contributors_thank_you.png" alt="github contributors" style="height: 30vh;">
+
+https://github.com/who-knows-inc/KEA_DAT_DevOps_2025_Spring/graphs/contributors
+
+https://github.com/who-knows-inc/KEA_DAT_DevOps_2025_Spring/network
+
+---
+
+# Course Survey
+
+
+---
+
+# Did we learn Devops - A historical overview
+
+Compilation of blog posts and articles of historical importance:
+
+https://gist.github.com/jpswade/4135841363e72ece8086146bd7bb5d91
+
+
+---
+
+# Did we learn Devops - Roadmap
+
+This is a famous roadmap for DevOps:
+
+This course was not developed with it in mind but see how much of it we have achieved:
+
+https://roadmap.sh/devops
+
+---
+
+
+# DevOps course as DevOps
+
+This course has aimed to be DevOps!
+
+Examples:
+
+* IaC: First weeks server and the simulation.
+
+* Various Github Actions. 
+
+* Monitoring of student activity, 
+
+* Behind-the-scenes monitoring of the simulator.
+
+* Continuous improvement of the course.
+
+---
+
+# Debois' definition of DevOps
+
+
+> *It's taken me 10-plus years to come up with my own one-line definition of DevOps:*
+
+> ***"DevOps is whatever you do to bridge friction created by silos, and all the rest is engineering."***
+
+> *And so, if you're doing technology just for the technology and you're not trying to overcome some friction of the human kind of siloing or group siloing or information siloing or whatever, then you're just doing the engineering part and you're not, in my opinion, doing the DevOps part."*
+
+\- Patrick Debois
+
+---
+
+# Were you DevOps?
+
+The big exam question: *Were you DevOps?*
+
+While you have to ask yourselves if you were DevOps you should also ask if you did what was best for your team in the context of the course.
+
+DevOps offers a solution to common problems. 
+
+---
+
+# Was I DevOps?
+
+DevOps shouldn't be the end goal. 
+
+It's about continuous improvement. 
+
+I hope you can use this in your general life. 
+
+
+
+
+
+# File: 06._kubernetes_hands-on.md
+
+
+<div class="title-card">
+    <h1>Minikube setup</h1>
+</div>
+
+---
+
+# Installing kubectl and minikube
+
+**kubectl**: the command line tool for interacting with Kubernetes.
+
+**minikube**: creates a single-node Kubernetes cluster on your local machine (only for local development and testing).
+
+MacOS:
+
+```bash
+$ brew install kubectl minikube
+```
+
+Powershell:
+
+```powershell
+$ choco install kubernetes-cli minikube
+```
+---
+
+# Starting minikube
+
+You have to sepcify the driver.
+
+Possible drivers are: `Docker`, `Hyperkit`, `KVM2`, `Parallels`, `Podman` `VirtualBox`, `VMware Fusion`, `VMware Workstation`
+
+```bash
+$ minikube start --driver=docker
+```
+
+**Beware**: There are limitations to using the `Docker` driver for Minikube [which is that it doesn't support ingress outside of Linux](https://stackoverflow.com/questions/76470764/why-i-cant-get-access-to-app-from-browser-with-kubernetes-minikube).
+
+
+Since we already have Docker installed, we will use it.
+
+Check the status:
+
+```bash
+$ minikube status
+```
+
+You can always stop minikube with:
+
+```bash
+$ minikube stop
+```
+
+---
+
+# SSH into it
+
+SSH into it:
+
+```bash
+$ minikube ssh
+```
+
+The default user name for minikube is `docker`, even if you are not using the `docker` driver.
+
+---
+
+# Check the services
+
+After ssh'ing into the minikube, you can check the services:
+
+```bash
+$ docker ps
+```
+
+You will recognize some of these services from the previous architecture diagrams. 
+
+---
+
+# Using `kubectl` to interact with minikube
+
+`kubectl` is a command line tool, external to minikube, which allows us to interact with Kubernetes clusters.
+
+It is common to alias `kubectl` to `k`.
+
+Run the following commands in a new terminal:
+
+```bash
+$ kubectl cluster-info
+```
+
+```bash
+$ kubectl get nodes
+```
+
+```bash
+$ kubectl get services
+```
+
+---
+
+# Namespaces and pods
+
+We haven't created any pods yet:
+
+```bash
+$ kubectl get pods
+```
+
+Check the namespaces:
+
+```bash
+$ kubectl get namespaces
+```
+
+When we listed pods we only did so in the default namespace.
+
+Check the pods in the `kube-system` namespace:
+
+```bash
+$ kubectl get pods -n kube-system
+```
+
+---
+
+# Let's run a pod
+
+Let's pull the `Nginx` image from DockerHub and run it in a pod:
+
+```bash
+$ kubectl run nginx --image=nginx
+```
+
+Check the pods:
+
+```bash
+$ kubectl get pods
+```
+
+```bash
+$ kubectl describe pod nginx
+```
+
+---
+
+# Deleting the pod
+
+The problem is that running a new pod with `kubectl run` only creates a single pod which goes against the idea of Kubernetes. 
+
+Instead, we want to create a deployment which will create a replica set of pods.
+
+First, let's delete the pod:
+
+```bash
+$ kubectl delete pod nginx
+```
+
+---
+
+# Create a deployment
+
+Pull the `Nginx` image from DockerHub and create a deployment:
+
+```bash
+$ kubectl create deployment nginx --image=nginx
+```
+
+Check the deployments:
+
+```bash
+$ kubectl get deployments
+```
+
+Check the pods:
+
+```bash
+$ kubectl get pods
+```
+
+---
+
+# Exposing the pod
+
+We cannot access the pod from outside the cluster. The IP address of the pod is internal.
+
+There are multiple ways to expose the pod:
+
+1. **NodePort**: Exposes the service on each Node's IP at a static port.
+
+2. **LoadBalancer**: Exposes the service which proxies to pods using a cloud provider's load balancer.
+
+3. **ClusterIP**: Exposes the service on a cluster-internal IP.
+
+4. **ExternalName**: Maps the service to the contents of the `externalName` field.
+
+---
+
+# Exposing the pod using minikube
+
+Expose the deployment using `NodePort`:
+
+```bash
+$ kubectl expose deployment nginx --port=80 --type=NodePort
+```
+
+With `minikube` the URL will be mapped to localhost and the port can be retrieved with:
+
+```bash
+$ minikube service nginx --url
+```
+
+Done! You can now delete the service:
+
+```bash
+$ kubectl delete service nginx
+```
+
+---
+
+
+<div class="title-card">
+    <h1>Deployments</h1>
+</div>
+
+---
+
+# Creating a deployment
+
+Let's create a deployment for a simple Express server running on port `3000` (image in my account):
+
+```bash
+$ kubectl create deployment k8s-web-hello --image=andlocker/k8s-web-hello
+$ kubectl expose deployment k8s-web-hello --port=3000 --type=NodePort
+```
+
+Get the URL:
+
+```bash
+$ minikube service k8s-web-hello
+```
+
+The first IP address will be the same as:
+
+```bash
+$ minikube ip
+```
+
+---
+
+# Manually scaling the deployment
+
+```bash
+$ kubectl scale deployment k8s-web-hello --replicas=4
+```
+
+---
+
+# Cleaning up
+
+Delete the service (`svc` is shorthand for `service`):
+
+```bash
+$ kubectl delete svc k8s-web-hello
+```
+
+Or delete all:
+
+```bash
+$ kubectl delete all --all
+```
+
+---
+
+<div class="title-card">
+    <h1>Decleratively working with Kubernetes</h1>
+</div>
+
+---
+
+# Imperative vs Declarative
+
+We were working imperatively before by typing commands into the terminal.
+
+Now we will work declaratively by creating a `yaml` file which describes the desired state of the cluster.
+
+---
+
+# Create a deployment
+
+Create a `deployment.yaml` file.
+
+In `deployment.yaml` type "Deployment" and press `tab` to get the template then:
+
+| Replace Key     | Replacement Value               |
+|-----------------|---------------------------------|
+| `name` (x2k )     | `k8s-web-hello`                 |
+| `app` (x2)     | `k8s-web-hello`                 |
+| `image`         | `andlocker/k8s-web-hello:latest`|
+| `containerPort` | `3000`                            |
+
+The containerPort is 3000 because my Express server is running on port 3000.
+
+---
+
+# Apply the deployment
+
+```bash
+$ kubectl apply -f deployment.yaml
+```
+
+Check the deployment:
+
+```bash
+$ kubectl get deployments
+```
+
+Check the amount of pods:
+
+```bash
+$ kubectl get pods
+```
+
+---
+
+# Add more replicas
+
+Edit the `deployment.yaml` file and add the `replicas` field under the "top-level" `spec` key:
+
+```yaml
+spec:
+  replicas: 4
+```
+
+Reapply and check the pods.
+
+We want it to run as a service so that we can access it from the browser.
+
+But, it is not running as a service yet. Check `$ kubectl get services`.
+
+---
+
+# Create a service
+
+We want to create a `LoadBalancer` service to expose the pods.
+
+Create a `service.yaml` file, type "Service" and press `tab` to get the template.
+
+| Replace Key          | Replacement Value        |
+|-----------------------|--------------------------|
+| `name`               | `hello`          |
+| `app`                | `k8s-web-hello`          |
+| `port`               | `3000`   |
+| `targetPort`         | `3000`    |
+| `type` (under `spec`)| `LoadBalancer`           |
+
+```yaml
+spec:
+  type: LoadBalancer
+```
+
+The `targetPort` in the serviced must be the same as the `containerPort` in the deployment.
+
+---
+
+# Apply the service
+
+```bash
+$ kubectl apply -f service.yaml
+```
+
+Check the service:
+
+```bash
+$ kubectl get services
+```
+
+Open the service in the browser:
+
+```bash
+$ minikube service hello
+```
+
+---
+
+# Cleaning up
+
+Delete the deployment and service:
+
+```bash
+$ kubectl delete -f deployment.yaml -f service.yaml
+```
+
+---
+
+
+
+# Cleaning up
+
+Delete the deployment and service:
+
+```bash
+$ kubectl delete -f deployment.yaml -f service.yaml
+```
+
+---
+
+# Combine the two files
+
+It is standard to combine a deployment and a service into one file. We will call it `deployment_service.yaml`.
+
+
+1. Paste the deployment. 
+
+2. Add `---` after it.
+
+3. Paste the service.
+
+This makes it easier to apply.
+
+
+*Can you apply the new file, open the URL in the browser and then delete it all?*
+
+---
+
+# Solution - Apply the combined file and take it down
+
+```bash
+$ kubectl apply -f deployment_service.yaml
+$ minikube service hello
+$ kubectl delete -f deployment_service.yaml
+```
+
+---
+
+# `deployment_service.yaml`
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-web-hello
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: k8s-web-hello
+  template:
+    metadata:
+      labels:
+        app: k8s-web-hello
+    spec:
+      containers:
+      - name: k8s-web-hello
+        image: andlocker/k8s-web-hello:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-web-hello
+spec:
+  type: LoadBalancer
+  selector:
+    app: k8s-web-hello
+  ports:
+  - port: 3000
+    targetPort: 3000
+```
+
+---
+
+
+<div class="title-card">
+    <h1>Helm</h1>
+</div>
+
+---
+
+# What is Helm?
+
+* [**Helm Charts**](https://artifacthub.io/packages/search?kind=0&sort=relevance&page=1): public and private repositories for Kubernetes manifests.
+
+* **Templating engine**: allows for dynamic values in the manifests. Define values in a `values.yaml` file. 
+  *  Example: Define service name in one place and invoke it with `{{ .Values.serviceName }}`.
+
+* **Release Management**: Versioning, configuration, upgrades and rollbacks.
+
+---
+
+# Install Helm
+
+https://helm.sh/
+
+
+```bash
+$ brew install helm
+```
+
+```powershell
+$ choco install kubernetes-helm
+```
+
+Example command that (downloads, names, deploys and creates the resources to the default configured Kubernetes cluster):
+
+```bash
+$ helm install my-nginx bitnami/nginx
+```
+
+
+
+# File: 08._maintenance.md
+
+<div class="title-card">
+    <h1>Maintenance</h1>
+</div>
+
+---
+
+# Maintenance: The Missing Piece in your Education
+
+During your time at KEA, you learn how to build things from scratch. 
+
+And you might spend time bug fixing and refactoring.
+
+This is your opportunity to maintain a system that is already in production.
+
+---
+
+# What comprises Maintenance?
+
+* fixing bugs
+
+* keeping its systems operational
+
+* investigating failures
+
+* adapting it to new platforms
+
+* modifying it for new use cases
+
+* repaying technical debt
+
+* adding new features
+
+* etc.
+
+\- [Kleppmann "Designing Data-Intensive Applications" (2017)](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/ch01.html)
+
+---
+
+# Maintenance as viewed by the [ISO 25010](https://www.iso.org/standard/35733.html) specification
+
+To aid maintenance, the software should be designed for:
+
+* Modularity
+
+* Reusability
+
+* Analysability
+
+* Modifiability
+
+* Testability
+
+*What does this slide remind you of?*
+
+---
+
+# Parallels to earlier in the course
+
+Topic: Technical debt. 
+
+---
+
+# Design for Maintainability
+
+> [...] minimize pain during maintenance, and thus avoid creating legacy software ourselves.
+
+> * a) **Operability**
+>  Make it easy for operations teams to keep the system running smoothly.
+
+> * b) **Simplicity**
+>  Make it easy for new engineers to understand the system, by removing as much complexity as possible from the system. (Note this is not the same as simplicity of the user interface.)
+
+> * c) **Evolvability**
+  > Make it easy for engineers to make changes to the system in the future, adapting it for unanticipated use cases as requirements change. Also known as extensibility, modifiability, or plasticity.
+
+\- [Kleppmann "Designing Data-Intensive Applications" (2017)](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/ch01.html)
+
+
+---
+
+# SLAs vs. SLOs vs. SLIs
+
+Promises made by a service provider to a customer regarding systems in production.
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="./assets_maintenance/sla_slo_sli_definitions.png" alt="sla slo sli definition" style="width: 23vw;">
+  <img src="./assets_maintenance/sla_sli_sli_templates.png" alt="sla slo sli template" style="width: 23vw;">
+</div>
+
+[Source - Atlassian](https://www.atlassian.com/incident-management/kpis/sla-vs-slo-vs-sli).
+
+---
+
+# Examples of real-life SLAs
+
+https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&year=2023
+
+https://cloud.google.com/terms/sla/
+
+---
+
+
+# Definition of done
+
+Let's discuss:
+
+*When will you know when your work on the project is over?*
+
+There is no right answer. Each group might come up with their own definition.
+
+
+
+# File: 02._deploying_infrastructure_configuration_managment.md
+
+<div class="title-card">
+    <h1>Deploying Infrastructure and Configuration Managment</h1>
+</div>
+
+---
+
+# Platform engineering: Enable on-demand creation of dev, test and production environments
+
+We talked about this last week. We can use Infrastructure as Code tools as part of our CI/CD pipeline.
+
+Create platforms that enable developers to create their own environments by the click of a button.
+
+---
+
+# Platform Engineering
+
+<img src="./assets_maintenance/platform_engineering_devops8.png" alt="platform engineering devops8">
+
+[Source - Microsoft: What is Platform Engineering?](https://learn.microsoft.com/en-us/platform-engineering/what-is-platform-engineering)
+
+---
+
+# CDE (Cloud Development Environment)
+
+Development-environments-as-code. 
+
+Faster onboarding: Enable developers to quickly setup any project.
+
+Never give out secrets.
+
+https://coder.com/
+
+https://www.gitpod.io/
+
+---
+
+# Make infratructure easier to rebuild than repair
+
+> *Bill Baker, a distinguished engineer at Microsoft, quipped that we used to treat servers like pets: “You name them and when they get sick, you nurse them back to health. Now servers are treated like cattle. You number them and when they get sick, you shoot them.*
+
+\- The DevOps Handbook p. 141
+
+[CERN agrees with Cattle rather than pets (slide 17)](https://www.slideshare.net/slideshow/cern-data-centre-evolution/15246440#9)
+
+<img src="./assets_deployment_strategies/cern_slide_pets_vs_cattle.png" style="height: 28vh;" alt="cern slide pets vs cattle">
+
+
+---
+
+# Watch me kill my baby
+
+```bash
+scp the_simulator:/var/log/the_simulation/plot_server_error.log .
+scp the_simulator:/var/log/the_simulation/simulator_error.log .
+scp the_simulator:/var/log/the_simulation/simulator.db .
+```
+
+```bash
+$ terraform destroy
+```
+
+---
+
+# Problem: Avoid configuration drift
+
+> *The 2014 - 2019 State of DevOps Reports led by co-author Dr. Nicole Forsgren show that use of version control for all production artifacts was a higher predictor for software delivery performance*[...]
+
+> *Because in almost all cases, there are orders of magnitude more configurable settings in our environment than in our code. Consequently, it is the environment that needs to be in version control the most.*
+
+\- The DevOps Handbook page 140-141 
+
+---
+
+# Possible solution: Immutable infrastructure
+
+Example. Wanting to update an nginx server. Two ways to do it:
+
+<img src="./assets_deployment_strategies/mutable_immutable_architecture.png" alt="mutable immutable architecture" style="height: 40vh;">
+
+[Source](https://www.opsramp.com/guides/why-kubernetes/infrastructure-as-code/)
+
+**Next topic**: *How do can we achieve this without downtime?*
+
+
+
+# File: 04._orchestration.md
+
+<div class="title-card">
+    <h1>Orchestration</h1>
+</div>
+
+---
+
+# Fault tolerance - One solution: Redundancy
+
+Solution to the single-point-of-failure problem. Creates resilience. 
+
+*The human body is resilient. Give examples of redundancy.*
+
+<details> 
+  <summary>The human body</summary>
+   The human body has two kidneys, two lungs, two eyes, two ears, and so on. If one fails, the other can take over.
+</details>
+
+---
+
+# Scalability
+
+Designing for scalability -> accommodate increased demand. 
+
+- **Vertical scaling**: increase the capacity of a single server
+
+- **Horizontal scaling**: add more servers
+
+[Example](https://www.cloudzero.com/blog/horizontal-vs-vertical-scaling/)
+
+<img src="./assets_orchestration/vertical_horizontal_scaling.png" alt="horizontal vertical scaling" style="height: 30vh;">
+
+---
+
+# Congestion
+
+A bottleneck in the system where the capacity is exceeded.
+
+The solution: load balancing
+
+Example: [Azure Load Balancer](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview)
+
+<img src="./assets_orchestration/azure_load_balancer.png" alt="azure load balancer">
+
+
+---
+
+# Example of Load Balancing with Nginx
+
+```nginx
+http {
+    upstream backend {
+        server backend1.example.com;
+        server backend2.example.com;
+        server backend3.example.com;
+    }
+}
+
+server {
+    location / {
+        proxy_pass http://backend;
+    }
+}
+```
+
+`backend` being the name for the docker containers. 
+
+It's also possible to have them on the same server but on different ports.
+
+```nginx
+...
+  upstream backend {
+      server localhost:8080;
+      server localhost:8081;
+      server localhost:8082;
+  }
+...
+```
+
+Nginx will round robin the requests to the different servers.
+
+---
+
+# Load Balancing and keepalive
+
+[Source: Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-create-a-high-availability-setup-with-heartbeat-and-reserved-ips-on-ubuntu-16-04)
+
+<img src="./assets_orchestration/load_balancing_keep_alive.gif" alt="load balancer keep alive ubuntu digitalocean">
+
+Another pouplar setup is [HAProxy with Keepalived](https://kifarunix.com/configure-highly-available-haproxy-with-keepalived-on-ubuntu/).
+
+---
+
+# Advanced orchestration platforms
+
+- **Kubernetes**
+
+- **Docker Swarm** *(deprecated and added as a plugin to Kubernetes instead)*
+
+- **OpenShift**
+
+- **Mesos**
+
+- **Nomad**
+
+
+
+
+# File: 07._resilience.md
+
+<div class="title-card">
+    <h1>Resilience</h1>
+</div>
+
+
+---
+
+# KEA's Resilience Research
+
+---
+
+# Chaos Engineering
+
+> "*Chaos engineering is the discipline of experimenting on a system in order to build confidence in the system's capability to withstand turbulent conditions in production.*" 
+
+[Source - Wikipedia](https://en.wikipedia.org/wiki/Chaos_engineering)
+
+---
+
+# Netflix Simian Army
+
+https://netflixtechblog.com/the-netflix-simian-army-16e57fbab116
+
+https://github.com/Netflix/chaosmonkey
+
+https://netflix.github.io/chaosmonkey/
+
+<img src="./assets_resilience/chaosmonkey_logo.png" alt="chaosmonkey logo">
+
+
+---
+
+# Story from the trenches
+
+
+> "*An even more interesting example of resilience at  Netflix  was  during  the  “Great  Amazon  Reboot  of  2014,” when nearly 10% of the entire Amazon EC2 server fleet had to be rebooted to apply an emergency Xen security patch.*
+
+> *When  we  got  the  news  about  the emergency EC2 reboots, our jaws dropped. When we got the list  of  how  many  Cassandra  nodes  would  be  affected,  I  felt ill.”*
+
+> *Then  I  remembered  all  the Chaos  Monkey  exercises  we’ve  gone  through.  My  reaction was, ‘Bring it on!’*"
+
+\- Christos  Kalantzis  of  Netflix  Cloud  Database Engineering
+
+Find exact data on how well they performed on Page 316 in the DevOps Handbook.
+
+> "*Even more surprising, not only was no one at Netflix working active incidents due to failed Cassandra nodes, no one was even in the office — they were in Hollywood at a party celebrating an acquisition milestone.*"
+
+---
+
+# KubeInvaders
+
+Try the Game Mode: 
+
+https://kubeinvaders.platformengineering.it/
+
+---
+
+# Let's create our own "chaos monkey"
+
+In `keasmonkey.sh`:
+
+```bash
+#!/bin/bash
+
+while true
+do
+    echo "Choosing a pod to kill..."
+
+    PODS=$(kubectl get pods | grep -v NAME | awk '{print $1}')
+    POD_COUNT=$(kubectl get pods | grep -v NAME | wc -l)
+
+    if [ "$POD_COUNT" -eq 0 ]; then
+        echo "No pods found. Exiting loop."
+        break
+    fi
+
+    K=$(( (RANDOM % POD_COUNT) + 1))
+
+    TARGET_POD=$(kubectl get pods | grep -v NAME | awk '{print $1}' | head -n ${K} | tail -n 1)
+
+    echo "Killing pod $TARGET_POD"
+    kubectl delete pod $TARGET_POD
+
+    sleep 1
+done
+```
+
+---
+
+# Running the `keasmonkey` script
+
+First apply the `deployment_service` from previously:
+
+```bash
+$ kubectl apply -f deployment_service.yaml
+```
+
+Then run the chaos monkey (on Windows try Git Bash):
+
+```bash
+$ ./keasmonkey.sh
+```
+
+It will delete a random pod every second.
+
+---
+
+# Kubernetes dashboard
+
+Kubernetes comes with a dashboard. 
+
+This is very easy to access with Minikube. Outside of Minikube it is a bit more complicated and requires login credentials/token.
+
+Let's visualize the `keasmonkey` script. Run the dashboard:
+
+Open the dashboard:
+
+```bash
+$ minikube dashboard
+```
+
+---
+
+# What is fake about the previous example?
+
+*What made our test useless?*
+
+---
+
+# What are we testing for?
+
+Our little test basically tests Kubernetes' self-healing capabilities.
+
+If our infrastructure was more complex and pods depended on each other, we would gain more insight into how our system behaves under stress.
+
+Remember to introduce real world events such as:
+
+* server crashes
+* network failures
+* power outages
+* hard-drive malfunction
+
+---
+
+# Game days
+
+A game day is a practice where a team simulates a failure on a system to test its resilience. It happens in a predetermined time and all hands are on deck to solve problems that arise.
+
+It is important to clearly define the **blast radius** in advance.
+
+---
+
+# Game days at Amazon
+
+Amazon is known for its game days.
+
+> "*a service is not really tested until we break it in production.*"
+
+\- Jesse Robbins, known as the "Master of Disaster" at Amazon
+
+
+---
+
+# Game days are scary but they provide us unexpected lessons ahead of disaster
+
+Game days in actual companies end up resulting in a handful of suprising failure that no one was able to predict. It's all about uncovering these failure points.
+
+Examples at **DiRT** teaches us that:
+
+"*It's not just about how to solve problems. Sometimes it's about knowing who to call.*"
+
+...
+
+> "*When the data centers ran out of diesel for the backup generators, no one knew the procedures for making emergency purchases through the supplier, resulting in someone using a personal credit card to purchase $50,000 worth of diesel.*"
+
+\- Kripa Krishnan, Google's **Di**saster **R**ecovery **T**esting (DiRT). 
+
+
+---
+
+# SRE (Site Reliability Engineering)
+
+https://sre.google/books/
+
+---
+
+# Health checks in Docker containers
+
+https://docs.docker.com/engine/reference/builder/#healthcheck
+
+```yaml
+    healthcheck:
+      test: curl localhost:8080/available_languages | grep ', "en",'
+      interval: 30s
+      timeout: 13s
+```
+
+
+---
+
+# Avoid the cargo cult mentality that pervades our industry
+
+Many companies jump on the idea of implementing high-availability, fault-tolerant and highly scalable systems.
+
+In Denmark most companies do not need this but there is a tendency to look at what the big companies are doing. 
+
+You are in no way expected to implement today's topics for your project. The goal is to inform you about the possibilities and how to solve certain challenges, may they present themselves to you.
+
+**Counter point**: The blog post - [You have built a Kubernetes](https://www.macchaffee.com/blog/2024/you-have-built-a-kubernetes/) - details how in an attempt to avoid using Kubernetes and through custom parameterized shell scripts and Docker Compose, a worse version of Kubernetes was built.
+
+
+
+
+# File: 05._kubernetes.md
+
+<div class="title-card">
+    <h1>Kubernetes</h1>
+</div>
+
+---
+
+# K8s
+
+Originally developed by Google but is now open-source. 
+
+Google runs several billions of containers weekly in Google Cloud:
+
+https://cloud.google.com/containers
+
+<img src="./assets_kubernetes/kubernetes_logo.png" alt="kubernetes logo" style="height: 20vh;">
+
+---
+
+# Features of Kubernetes
+
+**Auto-scaling**.
+
+**Monitoring**: It monitors the health of the containers and the nodes. Kubernetes dashboard comes out of the box.
+
+<img src="./assets_kubernetes/kubernetes_features.png" alt="kubernetes features" style="height: 25vh;">
+
+[Source OpsRamp](https://www.opsramp.com/guides/why-kubernetes/kubernetes-architecture/)
+
+**Automatic Deployment** across different servers, even different regions. 
+
+**Self-healing** by replacing failed containers.
+
+---
+
+# How Kubernetes works
+
+[![How Kubernetes works](http://img.youtube.com/vi/daVUONZqn88/0.jpg)](https://www.youtube.com/watch?v=daVUONZqn88)
+
+---
+
+# Kubernetes Diagram 1
+
+<img src="./assets_kubernetes/kubernetes_archtecture_diagram.png" alt="kubernetes architecture diagram" style="height: 55vh;">
+
+[Source OpsRamp](https://www.opsramp.com/guides/why-kubernetes/kubernetes-architecture/)
+
+---
+
+# Kubernetes Diagram 2
+
+<img src="./assets_kubernetes/kubernetes_architecture.png" alt="kubernetes architecture diagram" style="height: 55vh;">
+
+[Source OpsRamp](https://www.opsramp.com/guides/why-kubernetes/kubernetes-architecture/)
+
+---
+
+# Kubernetes Architecture
+
+* **Container**: A lightweight, standalone, executable package of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings.
+
+* **Pod**: A group of one or more containers.
+
+A pod shares the same volume, namespace, and network (IP address).
+
+* **Service**: A way to expose an application running in a set of pods as a network service.
+
+* **Node**: A physical or virtual machine.
+
+* **Cluster**: A group of nodes. The Master Node manages the Worker Nodes.
+
+
+---
+
+# Supported container runtimes
+
+* Docker
+
+* Containerd
+
+* CRI-O
+
+---
+
+# Kubernetes in the cloud
+
+* Linode Kubernetes
+
+* Google Kubernetes Engine (GKE)
+
+* Azure Kubernetes Service (AKS)
+
+* Amazon Elastic Kubernetes Service (EKS)
+
+[EKS pricing calculator](https://calculator.aws/#/createCalculator/EKS)
+
+**Guessing game**: *How much would the default values of 1 cluster (Standard Support) and 2 clusters (Extended Support) cost per year?*
+
+---
+
+
+# [Optional] AKS hands-on
+
+AKS is included in Azure `Free Services`. That means that the cluster management is free, but you will still be charged for VM, storage and networking usage etc.
+
+Recommended video on how to get started with AKS.
+
+The timestamped part contains a very elegant explanation of the propogation from `Kubectl` -> `Control Plane` -> `Node`. 
+
+[![AKS hands-on](http://img.youtube.com/vi/RUoejLILgyA/0.jpg)](https://youtu.be/RUoejLILgyA?t=144)
+
+---
+
+# Kubernetes is not a silver bullet for scaling
+
+Many think that Kubernetes will magically solve all scalability issues. These issues remain:
+
+* Properly managing container resource allocation
+
+* Anticipating peak demand and scaling accordingly
+
+* Handling inefficient scaling of stateful applications
+
+* Addressing underlying infrastructure bottlenecks
+
+That's why configure management is the essence of a large-scale Kubernetes deployment.
+
+It would not be unusual to have 1 or 2 full-time employees dedicated to managing a large Kubernetes cluster.
+
+---
+
+# Downsides to Kubernetes
+
+| Challenge                                | Details                                                                                                                           |
+|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Meeting isolation standards              | Isolation of applications on the same server is vital for security.                                                               |
+| Internal networking challenges           | The latency between services needs to be accounted for in large clusters.                                                         |
+| Limited visibility into resource utilization | In large clusters with many applications and services running, it is difficult to know what level of resources systems are consuming. |
+| Optimizing resource usage                | As the cluster grows in size, cost management and resource optimization become more critical and more complex.                     |
+| Deployment failovers and downtime mitigation | Large-scale application rollouts must have fail-safes to avoid downtime risk.                                                     |
+| Reduced visibility into data flows       | As a cluster grows in size and across regions, maintaining visibility into data flows becomes increasingly complex.                |
+| Patch management                         | Applying K8s security patches and updates at scale without interrupting service or impacting performance is an operational challenge.|
+| Access management and tenant isolation   | For large clusters, isolation between different teams or customers using the cluster must be configured.                           |
+| On-prem challenges                       | Running clusters on your own data center infrastructure adds additional management complexities, including avoiding network partitions and upgrading servers. |
+
+[Source](https://www.opsramp.com/guides/why-kubernetes/challenges-with-kubernetes/)
+
+---
+
+# Do you need Kubernetes?
+
+Probably not! Just because Google does it, doesn't mean you should. 
+
+Challenges of Kubernetes:
+
+* Extremely high cost 
+
+* Steep learning curve, time sink
+
+* Configuration complexity, risk of misconfiguration
+
+* Security challenges  
+
+* Computational overhead  
+
+* Local replication difficulty  
+
+
+
+
+# File: 01._introduction.md
+
+
+<div class="title-card">
+    <h1>Orchestration, Deployment Strategies, Maintenance</h1>
+</div>
+
+---
+
+# The Final Total Graph of the Simulation
+
+<iframe src="./assets_introduction/Errors in Total by Group.svg" style="height: 50vh; width: 100%;" frameborder="0"></iframe>
+
+
+---
+
+# The Final Weekly Graph of the Simulation
+
+<iframe src="./assets_introduction/Errors in the Past Week by Group.svg" style="height: 50vh; width: 100%;" frameborder="0"></iframe>
+
+---
+
+# Let's have a look at your monitors
+
+---
+
+# Weekly DevOps Principle!
+
+Continuous Delivery, Continuous Delight!
+
+
+
 # File: 05._branching_strategies.md
 
 
@@ -10346,7 +11972,7 @@ Built-in support for adding Git Hooks to your project.
 
   - Early Error Detection / Immediate Feedback
 
-  - Prevents bad commits from eveing being checked in to version control
+  - Prevents bad commits from being checked in to version control
 
 **Cons**
 
@@ -12597,7 +14223,826 @@ If time permits, this is how we aim to finish every week.
 
 
 
-# File: 06._terraform_hands-on.md
+# File: 07._terraform_github_provider.md
+
+
+<div class="title-card">
+    <h1>Terraform - GitHub Provider</h1>
+</div>
+
+---
+
+# X as Code
+
+<div>
+    <img src="./assets_terraform_github_provider/X_as_Code.png" alt="X as Code" style="height: 40vh;"/>
+</div>
+
+[Source](https://youtu.be/f5EpcWp0THw?list=PLy7NrYWoggjxKDRWLqkd4Kbt84XEerHhB&t=49)
+
+---
+
+# A GitHub provider 
+
+GitHub has created [a provider](https://registry.terraform.io/providers/integrations/github/6.5.0/docs) for Terraform.
+
+With it, you can codify your GitHub infrastructure. 
+
+---
+
+# Prerequisites
+
+1. Create a PAT token that has the following scopes: `repo`, `admin:org` (which implicitly contains `admin:read`).
+
+This is different to the Read/Write permissions for GitHub Packages in CR PAT. 
+
+2. Create a new organisation. This can only be done through the UI.
+
+---
+
+# Create `variables.tf`
+
+```hcl
+variable "github_token" {
+  type = string
+}
+
+variable "github_org" {
+  type = string
+}
+
+variable "team_members" {
+  type = list(string)
+}
+```
+
+---
+
+# Define the secrets in `terraform.tfvars`
+
+
+```hcl
+github_token = "github_token_here"
+github_org   = "name_of_the_organisation"
+team_members = ["your_github_username"]
+```
+
+---
+
+# In `main.tf`
+
+```hcl
+provider "github" {
+  owner = var.github_org
+  token = var.github_token
+}
+
+resource "github_repository" "repo" {
+  name               = "terraform_provisioned_repo"
+  description        = "Provisioned via Terraform"
+  visibility         = "public"
+  has_issues         = true
+  has_projects       = true
+  has_wiki           = true
+  auto_init          = false
+  license_template   = "mit"
+  gitignore_template = "Python"
+  archive_on_destroy = true
+}
+
+resource "github_branch_default" "default" {
+  repository = github_repository.repo.name
+  branch     = "main"
+}
+
+resource "github_repository_file" "readme" {
+  repository          = github_repository.repo.name
+  file                = "README.md"
+  content             = "# Terraform Provisioned Repo \n\nThis repository was provisioned using Terraform."
+  commit_message      = "Initial commit"
+  overwrite_on_create = true
+  branch              = "main"
+}
+
+resource "github_repository_file" "github_dir_placeholder" {
+  repository          = github_repository.repo.name
+  file                = ".github/.keep"
+  content             = "This has been provisioned by Terraform"
+  commit_message      = "Create .github directory"
+  overwrite_on_create = true
+  depends_on          = [github_repository_file.readme]
+  branch              = "main"
+}
+
+
+resource "github_branch_protection" "main" {
+  repository_id = github_repository.repo.node_id
+  pattern       = "main"
+
+  required_pull_request_reviews {
+    required_approving_review_count = 1
+    dismiss_stale_reviews           = false
+    require_code_owner_reviews      = false
+  }
+
+  enforce_admins = false
+}
+
+resource "github_team" "example_team" {
+  name        = "core-devs"
+  description = "Core developers team"
+  privacy     = "closed"
+}
+
+resource "github_team_membership" "members" {
+  for_each = toset(var.team_members)
+  team_id  = github_team.example_team.id
+  username = each.value
+  role     = "maintainer"
+
+  depends_on = [github_team.example_team]
+}
+```
+
+---
+
+# Try to provision the resources
+
+```bash
+$ tf init
+$ tf fmt
+$ tf validate
+$ tf plan
+$ tf apply
+```
+
+Check in the UI that the:
+
+1. [team exists](https://github.com/orgs/testterraformprovider/teams)
+
+2. [repository exists](https://github.com/orgs/testterraformprovider/repositories)
+
+3. [branch rule was setup](https://github.com/testterraformprovider/terraform_provisioned_repo/settings/branches)
+
+---
+
+# Archiving vs. Deleting repositories
+
+In `main.tf` the following line has been defined:
+
+```hcl
+  archive_on_destroy = true
+```
+
+1. If it has been set to `true`, then the repository will be archived. Running `tf apply` again will not work because the repository already exists. The repository must first be manually deleted.
+
+2. If it is set to `false`, then the repository cannot be deleted and the `tf destroy` command will fail with the following error:
+
+```text
+│ Error: DELETE https://api.github.com/repos/testterraformprovider/terraform_provisioned_repo: 403 Must have admin rights to Repository. []
+```
+
+This is not a problem with appropriate permissions or ownership but simply GitHub disallowing deleting repositories this way as a security mechanism. Do it manually in the UI first.
+
+---
+
+# Destroy 
+
+Time to destroy the resources:
+
+```bash
+$ tf destroy
+```
+
+Everything will be destroyed except for the repository which will be archived.
+
+
+
+
+
+
+# File: 05._terraform_hands-on.md
+
+
+<div class="title-card">
+    <h1>Terraform - Get Started</h1>
+</div>
+
+---
+
+# Install and log in to `az`
+
+`az` is the Azure CLI. By logging in locally Terraform can get access to our cloud.
+
+https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build
+
+```bash
+$ az login
+```
+
+Verify the login:
+
+```bash
+$ az account show
+```
+
+---
+
+# Clarification: Terraform under the hood
+
+Though possible to provision everything through `az`, this is not how Terraform does it.
+
+Terraform uses `az` to generate a user token for authorization.
+
+This token is used to validate against what they call [Azure REST API](https://learn.microsoft.com/en-us/rest/api/azure/).
+
+---
+
+# Install Terraform
+
+https://developer.hashicorp.com/terraform/install?product_intent=terraform
+
+Success criterion: You can run the following and see the version number:
+
+```bash
+$ terraform --version
+```
+
+---
+
+# Suggestions for later 1: Install auto-completion for Terraform
+
+Install terraform auto-complete (tab completion) for your terminal:
+
+https://developer.hashicorp.com/terraform/tutorials/azure-get-started/install-cli#enable-tab-completion
+
+---
+
+# Suggestions for later 2: Alias `terraform` as `tf`
+
+Aliasing the `terraform` command so that you can invoke it by simply typing `tf` is pretty standard practice for Terraform users.
+
+***nix**: 
+
+Write `alias tf="terraform"` in the terminal and it will work in the session.
+
+For a more permanent solution add this to your terminal's rc file (such as ~/.bashrc, ~/.zshrc).
+
+**Windows**: Create a terminal profile if it doesn't exist, in either case open it
+
+```powershell
+$ if (!(Test-Path -Path $PROFILE)) { New-Item -ItemType File -Path $PROFILE -Force }
+notepad.exe $PROFILE
+```
+You can now manually add this line to it and save:
+
+```powershell
+Set-Alias -Name tf -Value terraform
+```
+
+---
+
+<div class="title-card">
+    <h1>First Terraform project - Let's test it out</h1>
+</div>
+
+---
+
+# Let's create our first Terraform project
+
+In an empty folder run:
+
+```bash
+$ terraform init
+```
+
+It is missing a configuration file. Let's create `main.tf`. Then run init again.
+
+---
+
+# .tf files and VSCode Extensions
+
+The `.tf` file extension is used for Terraform. In VSCode there are extensions for syntax highlighting and Intellisense. 
+
+The official one by Hashicorp seems to be universally hated. Instead, consider the one that is higher rated.
+
+<img src="./assets_infrastructure_as_code/hashicorp_vscode_extension_review.png" alt="hashicorp vscode extension review">
+
+---
+
+
+<div class="title-card">
+    <h1>Terraform Workflow</h1>
+</div>
+
+---
+
+# Terraform workflow - I
+
+<img src="./assets_infrastructure_as_code/terraform_workflow_1.png" alt="Terraform workflow stages" style="height: 45vh;">
+
+Source: https://developer.hashicorp.com/terraform/tutorials/azure-get-started/infrastructure-as-code
+
+---
+
+# Terraform Planning
+
+During the planning, Terraform tries to assess the current state and find out how to get to the desired state. 
+
+It creates a dependency graph of all resources and the order that they must be created in.
+
+*When creating a virtual machine in Azure what ressources need to be created and in what order?*
+
+<details> 
+  <summary>Hint - How many that are needed</summary>
+   8 resources have to be created.
+</details>
+
+
+---
+
+# Virtual Machine Resource Creation and Order
+
+1. Resource Group
+
+2. OS Disk
+
+3. Virtual Network
+
+4. Subnet
+
+5. Network Security Group
+
+6. Public IP
+
+7. Network Interface
+
+8. Virtual Machine
+
+
+---
+
+# Terraform commands - overview
+
+| Command                | Description                                          |
+|------------------------|------------------------------------------------------|
+| `terraform init`       | Initializes a Terraform configuration directory. Prepares your directory for other commands, installs necessary providers. |
+| `terraform plan`       | Shows a preview of the actions Terraform plans to take based on the configuration files. Useful for reviewing changes before applying them. |
+| `terraform apply`      | Applies the changes described by `terraform plan`. Provisions or updates infrastructure according to the Terraform configuration. |
+| `terraform destroy`    | Removes all resources defined in the Terraform configuration, tearing down the managed infrastructure. |
+| `terraform fmt`        | Automatically formats Terraform configuration files to a canonical format and style. |
+| `terraform validate`   | Validates the syntax of the Terraform configuration files for correctness. |
+| `terraform output`     | Displays the output variables defined in the configuration, useful for extracting important information like IP addresses. |
+| `terraform refresh`    | Updates the local state file against real-world resources, realigning the state with the actual state of resources in the cloud. |
+| `terraform import`     | Brings real-world infrastructure into Terraform management by adding it to the Terraform state file. |
+| `terraform workspace`  | Manages different workspaces, allowing for managing separate states for the same configuration, useful for different environments (e.g., staging, production). |
+
+
+---
+
+
+# Terraform workflow - II
+
+Let's look at the previous table again. 
+
+*Can you spot a command and guess which stage they relate to?*
+
+<img src="./assets_infrastructure_as_code/terraform_workflow_2.png" alt="Terraform workflow stages">
+
+Source: https://developer.hashicorp.com/terraform/intro
+
+
+---
+
+# Let's add the Azure Provider
+
+1. Get the Azure Provider snippet in the [provider docs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). 
+
+    <img src="./assets_terraform_get_started/azure_provider.png" style="height: 22vh;" alt="azure provider terraform snippet">
+
+2. Paste it in the `main.tf` file. 
+
+3. Run the following to download initialize which downloads the provider locally:
+
+```bash
+$ terraform init
+```
+
+*What was created?*
+
+---
+
+# Terraform `.gitignore`
+
+The provider is a large file which will cause problems if pushed to git
+
+Add Terraform templates to your `.gitignore`. Find one by searching for Terraform in [gitignore.io](http://www.gitignore.io):
+
+This will also ensure that no Terraform secrets (like the state file) are pushed to git.
+
+---
+
+# [Optional step] Format
+
+Formatting will make your code look nicer: 
+
+```bash
+$ terraform fmt
+```
+
+---
+
+# Azure Virtual Machine with hardcoded and visible password
+
+Our end goal is to move away from hardcoded passwords. This is not our final version.
+
+To ensure that we have the latests version, delete the first block below and replace the `required_providers` with the one you got from the provider page.
+
+```hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.27.0"
+    }
+  }
+}
+
+provider "azurerm" {
+    features {}
+    subscription_id = "00000000-0000-0000-0000-000000000000"
+}
+
+resource "azurerm_resource_group" "terraform_class" {
+  name     = "terraform_class-resources"
+  location = "North Europe"
+}
+
+resource "azurerm_virtual_network" "terraform_class" {
+  name                = "terraform_class-vnet"
+  address_space       = ["10.0.0.0/16"]
+  location            = azurerm_resource_group.terraform_class.location
+  resource_group_name = azurerm_resource_group.terraform_class.name
+}
+
+resource "azurerm_subnet" "terraform_class" {
+  name                 = "internal"
+  resource_group_name  = azurerm_resource_group.terraform_class.name
+  virtual_network_name = azurerm_virtual_network.terraform_class.name
+  address_prefixes     = ["10.0.2.0/24"]
+}
+
+resource "azurerm_public_ip" "terraform_class" {
+  name                = "terraform_class-publicip"
+  location            = azurerm_resource_group.terraform_class.location
+  resource_group_name = azurerm_resource_group.terraform_class.name
+  allocation_method   = "Static"
+  sku                 = "Standard"
+}
+
+resource "azurerm_network_interface" "terraform_class" {
+  name                = "terraform_class-nic"
+  location            = azurerm_resource_group.terraform_class.location
+  resource_group_name = azurerm_resource_group.terraform_class.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.terraform_class.id
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.terraform_class.id
+  }
+}
+
+resource "azurerm_linux_virtual_machine" "terraform_class" {
+  name                = "main-vm"
+  resource_group_name = azurerm_resource_group.terraform_class.name
+  location            = azurerm_resource_group.terraform_class.location
+  size                = "Standard_B1s"
+  admin_username      = "adminuser"
+  network_interface_ids = [
+    azurerm_network_interface.terraform_class.id,
+  ]
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts-gen2"
+    version   = "latest"
+  }
+
+  disable_password_authentication = false
+  admin_password                  = "badpasword1!"
+
+}
+
+resource "azurerm_network_security_group" "terraform_class_nsg" {
+  name                = "terraform_class-nsg"
+  location            = azurerm_resource_group.terraform_class.location
+  resource_group_name = azurerm_resource_group.terraform_class.name
+
+  security_rule {
+    name                       = "allow-8080"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "8080"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+
+resource "azurerm_network_security_rule" "terraform_class_ssh_rule" {
+  name                        = "SSH"
+  priority                    = 1000
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "22"
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  network_security_group_name = azurerm_network_security_group.terraform_class_nsg.name
+  resource_group_name         = azurerm_resource_group.terraform_class.name
+}
+
+resource "azurerm_subnet_network_security_group_association" "terraform_class_assoc" {
+    subnet_id                 = azurerm_subnet.terraform_class.id
+    network_security_group_id = azurerm_network_security_group.terraform_class_nsg.id
+}
+```
+
+
+---
+
+# Terraform Validate + Plan
+
+```bash
+$ terraform validate
+$ terraform plan
+```
+
+*What happens?*
+
+---
+
+# Subscription ID
+
+Seeing how validate succeeds while plan doesn't shows the difference. 
+
+`validate` is to check the syntax and internal consistency. 
+
+`plan` is to check execution logic.
+
+We are missing the subscription ID. Get it by running:
+
+```bash
+$ az account show
+```
+
+The `id` field is the subscription ID.
+
+In the `main.tf` file, replace the subscription ID to the provider block:
+
+```hcl
+provider "azurerm" {
+    features {}
+    subscription_id = "00000000-0000-0000-0000-000000000000"
+}
+```
+
+**Note**: This is another thing that we do not wish to hardcode and push.
+
+---
+
+# Terraform Apply
+
+Running apply will give you an overview once again. Type `yes` to enact them:
+
+```bash
+$ terraform apply
+```
+
+Once finished look for this line and the numbers instead of X, Y, Z:
+
+```
+Apply complete! Resources: **X** added, **Y** changed, **Z** destroyed.
+```
+
+---
+
+# Can we SSH into it?
+
+Go into the Azure portal and check if the VM is running. Copy the `ip_address` and try to SSH into it:
+
+```bash
+$ ssh adminuser@<ip_address>
+```
+
+Enter the password as defined in the `main.tf` file.
+
+---
+
+# Create a `outputs.tf` file
+
+Wouldn't be neat if we could get some dynamic information after applying? 
+
+We can define that if we create a file named exactly `outputs.tf` in the same directory as the `main.tf` file.
+
+```hcl
+output "public_ip_address" {
+  value = azurerm_public_ip.terraform_class.ip_address
+}
+
+output "ssh_command" {
+  value = "ssh ${azurerm_linux_virtual_machine.terraform_class.admin_username}@${azurerm_public_ip.terraform_class.ip_address}"
+}
+```
+
+Then run apply again:
+
+```bash
+$ terraform apply
+```
+
+---
+
+# Visualizing the Dependency Graph
+
+Combining Terraform and GraphViz, you can actually visualize the graph on *nix:
+
+```bash
+$ terraform graph | dot -Tpng > graph.png
+```
+
+Resulting in a graph like this:
+
+<img src="./assets_terraform_get_started/terraform_dependency_graph.png" alt="terraform dependency graph">
+
+
+---
+
+# Declare variables
+
+To exemplify using variables for both **secrets** and **dynamic values**, create a `variables.tf` file (named exactly that and in the same directory as the `main.tf` file):
+
+```hcl
+variable "subscription_id" {
+  description = "The azure subscription ID"
+  type        = string
+}
+
+variable "vm_name" {
+  description = "The name of the virtual machine"
+  type        = string
+  default     = "main-vm"
+}
+
+variable "ssh_password" {
+  description = "The password for the SSH user"
+  type        = string
+  sensitive   = true
+}
+```
+
+The `sensitive = true` value ensure that the password is never printed in the console.
+
+---
+
+# Define variables
+
+Then define them in a `terraform.tfvars` file (fill out the correct subscription ID):
+
+```hcl
+subscription_id = "00000000-0000-0000-0000-000000000000"
+vm_name = "main-vm"
+ssh_password = "badpassword1!"
+```
+
+*What would happen if we don't define `vm_name`?*
+
+---
+
+# Use variables
+
+In `main.tf` replace the hard-coded values with the two variables like this:
+
+```hcl
+var.subscription_id
+var.vm_name
+var.ssh_password
+```
+
+*Can you figure out where to replace with variables?*
+
+To summarize, because `*.tfvars` are part of the standard `.gitignore` template for Terraform, defining secrets there ensure that we do not push sensitive data to Terraform while being able to retrieve them in our `.tf` files. It also allows us to define dynamic and reusable values in a single place. We can't use libraries like `.env` since HCL is not an imperative programming language.
+
+---
+
+
+# Overview: The Files of Terraform
+
+| File Type              | Description                                           |
+|------------------------|-------------------------------------------------------|
+| `*.tf` / `*.tf.json`   | Infrastructure definitions in HCL or JSON.            |
+| `*.tfvars` / `*.tfvars.json` | Variable definitions for configurations.                |
+| `.terraform.lock.hcl` | Tracks provider versions and dependencies.            |
+| `outputs.tf`           | Defines output values from Terraform.                 |
+| State Files (`terraform.tfstate`, `terraform.tfstate.backup`) | Maps configurations to real-world resources.            |
+
+
+
+---
+
+# Replace password authentication with SSH key
+
+If you have a RSA SSH key, then replace the password authentication with the public key.
+
+Find this block:
+
+```hcl
+  disable_password_authentication = false             # flip this to true     
+  admin_password                  = var.ssh_password  # delete this line
+```
+
+And replace it with this:
+
+```hcl
+  disable_password_authentication = true
+  admin_ssh_key {
+    username   = "adminuser"
+    public_key = file("~/.ssh/id_rsa.pub")
+  }
+```
+
+Now apply and try to ssh into the VM.
+
+If you suceed at this step, delete the `ssh_password` variable. 
+
+---
+
+# Add a remote provisioner
+
+This is not what you should use Terraform for, but it will be useful for your projects.
+
+Inside of the `azurerm_linux_virtual_machin` block, add the following:
+
+```hcl
+  provisioner "remote-exec" {
+    inline = split("\n", templatefile("${path.module}/inline_commands.sh", {}))
+
+    connection {
+      type        = "ssh"
+      user        = "adminuser"
+      private_key = file("~/.ssh/id_rsa")
+      host        = self.public_ip_address
+      timeout     = "2m"
+    }
+  }
+```
+
+---
+
+# Create a `inline_commands.sh` file
+
+Make sure that there are no empty lines as they will not be valid shell commands.
+
+The echo commands are because you cannot pass comments to the shell. 
+
+```bash
+echo "============================================================================================"
+echo "Update packages"
+echo "============================================================================================"
+sudo apt-get update && sudo apt-get install -y software-properties-common
+echo "============================================================================================"
+echo "Install Docker and give user permission"
+echo "============================================================================================"
+sudo apt install -y docker.io
+sudo usermod -aG docker $(whoami)
+sudo systemctl restart docker
+sudo apt install -y docker-compose
+```
+
+---
+
+# Time to destroy
+
+This will tear down your cloud services provisioned by Terraform:
+
+```bash
+$ terraform destroy
+```
+
+As mentioned earlier, the smart thing about Terraform is that they take care of the dependency graph 
+and will shut down services in the necessary order. 
+
+*Verify in Azure Portal that it is gone.*
+
+---
 
 <div class="title-card">
     <h1>Terraform Workspaces</h1>
@@ -12652,311 +15097,15 @@ $ terraform workspace select prod
 
 # Why workspaces in Terraform?
 
-Besides having different environments like `dev`/ `test` / `prod`, you can also create sandboxes for each developer. 
+Each workspace maintains its own state, allowing for isolated management of resources.
 
-Because each workspace maintains its own state, allowing for isolated management of resources.
+Besides having different environments like `dev`/ `test` / `prod`, you can also create sandboxes for each developer.
 
-The state is kept in `terraform.tfstate`file inside of the `terraform.tfstate.d` directory. 
+Or you can use it to create a white label solution for each client.
 
-Try to observe how the file changes as you switch between workspaces. 
+The state is kept in `terraform.tfstate`file inside of the `terraform.tfstate.d` directory.
 
-It requires a project where you have actually provisioned resources. 
-
-Knowing about workspaces is useful but you are not expected to use them in this course.
-
----
-
-<div class="title-card">
-    <h1>Terraform Create a VM in Azure</h1>
-</div>
-
----
-
-# Goal: Create a virtual machine in Azure
-
-1. Add Terraform templates to .gitignore.
-
-**Crucial**: Do the above! Terraform will download a large provider plugin for Azure. That will cause problems if you push it to git.
-
-2. Create a `main.tf` file (by hand).
-
-3. Initialize the current directory as a Terraform project:
-
-```bash
-$ terraform init
-```
-
----
-
-# Add `azurerm` as the provider
-
-Azurerm = Azure Resource Manager. This tells Terraform that we want to deploy to Azure specific services. 
-
-https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
-
-Click on USE PROVIDER:
-
-<div>
-    <img src="./assets_infrastructure_as_code/azurerm.png" alt="Azure provider for terraform azurerm" style="height: 33vh;"/>
-</div>
-
----
-
-# Initialize the provider
-
-Copy the provider block into a new file named `main.tf`. 
-
-Then run the following commands:
-
-```bash
-$ terraform init
-$ terraform validate
-$ terraform plan
-```
-
----
-
-# A template for creating a VM in Azure
-
-```hcl
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "3.83.0"
-    }
-  }
-}
-
-provider "azurerm" {
-  features {}
-  skip_provider_registration = true
-}
-
-resource "azurerm_resource_group" "terraform_class" {
-  name     = "terraform_class-resources"
-  location = "North Europe"
-}
-
-resource "azurerm_virtual_network" "terraform_class" {
-  name                = "terraform_class-vnet"
-  address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.terraform_class.location
-  resource_group_name = azurerm_resource_group.terraform_class.name
-}
-
-resource "azurerm_subnet" "terraform_class" {
-  name                 = "internal"
-  resource_group_name  = azurerm_resource_group.terraform_class.name
-  virtual_network_name = azurerm_virtual_network.terraform_class.name
-  address_prefixes     = ["10.0.2.0/24"]
-}
-
-resource "azurerm_public_ip" "terraform_class" {
-  name                = "terraform_class-publicip"
-  location            = azurerm_resource_group.terraform_class.location
-  resource_group_name = azurerm_resource_group.terraform_class.name
-  allocation_method   = "Static"
-}
-
-resource "azurerm_network_interface" "terraform_class" {
-  name                = "terraform_class-nic"
-  location            = azurerm_resource_group.terraform_class.location
-  resource_group_name = azurerm_resource_group.terraform_class.name
-
-  ip_configuration {
-    name                          = "internal"
-    subnet_id                     = azurerm_subnet.terraform_class.id
-    private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.terraform_class.id
-  }
-}
-
-resource "azurerm_linux_virtual_machine" "terraform_class" {
-  name                = "main-vm"
-  resource_group_name = azurerm_resource_group.terraform_class.name
-  location            = azurerm_resource_group.terraform_class.location
-  size                = "Standard_B1s"
-  admin_username      = "adminuser"
-  network_interface_ids = [
-    azurerm_network_interface.terraform_class.id,
-  ]
-  os_disk {
-    caching              = "ReadWrite"
-    storage_account_type = "Standard_LRS"
-  }
-  source_image_reference {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
-    sku       = "22_04-lts-gen2"
-    version   = "latest"
-  }
-  admin_ssh_key {
-    username   = "adminuser"
-    public_key = file("~/.ssh/id_rsa.pub")
-  }
-  disable_password_authentication = true
-}
-
-resource "azurerm_network_security_group" "terraform_class_nsg" {
-  name                = "terraform_class-nsg"
-  location            = azurerm_resource_group.terraform_class.location
-  resource_group_name = azurerm_resource_group.terraform_class.name
-
-  security_rule {
-    name                       = "allow-8080"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "8080"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-}
-
-resource "azurerm_network_security_rule" "terraform_class_ssh_rule" {
-  name                        = "SSH"
-  priority                    = 1000
-  direction                   = "Inbound"
-  access                      = "Allow"
-  protocol                    = "Tcp"
-  source_port_range           = "*"
-  destination_port_range      = "22"
-  source_address_prefix       = "*"
-  destination_address_prefix  = "*"
-  network_security_group_name = azurerm_network_security_group.terraform_class_nsg.name
-  resource_group_name         = azurerm_resource_group.terraform_class.name
-}
-```
-
----
-
-# Let's provision it
-
-```bash
-$ terraform fmt
-$ terraform validate
-$ terraform plan
-$ terraform apply
-```
-
-Check it in the Azure portal.
-
----
-
-# Create a `outputs.tf` file
-
-Wouldn't be neat if we could get some dynamic information after applying? 
-
-We can define that if we create a file named exactly `outputs.tf` in the same directory as the `main.tf` file.
-
-```hcl
-output "public_ip_address" {
-  value = azurerm_public_ip.terraform_class.ip_address
-}
-
-output "ssh_command" {
-  value = "ssh ${one(azurerm_linux_virtual_machine.terraform_class.admin_ssh_key).username}@${azurerm_public_ip.terraform_class.ip_address}"
-}
-```
-
-*Now try to ssh into it.*
-
----
-
-# Work with variables
-
-Create a `variables.tf` file (named exactly that and in the same directory as the `main.tf` file):
-
-```hcl
-variable "vm_name" {
-  description = "The name of the virtual machine"
-  type        = string
-  default     = "main-vm"
-}
-
-variable "vm_size" {
-  description = "The size of the virtual machine"
-  type        = string
-  default     = "Standard_B4ms"
-}
-```
-
-In `main.tf` replace the hard-coded values with the two variables like this:
-
-```hcl
-var.vm_name
-var.vm_size
-```
-
-*Can you figure out where to replace with variables?*
-
----
-
-# Destroy the current infrastructure
-
-```bash
-$ terraform destroy
-```
-
----
-
-# Add a remote provisioner
-
-This is not what you should use Terraform for, but it will be useful for your projects.
-
-Inside of the `azurerm_linux_virtual_machin` block, add the following:
-
-```hcl
-  provisioner "remote-exec" {
-    inline = split("\n", templatefile("${path.module}/inline_commands.sh", {}))
-
-    connection {
-      type        = "ssh"
-      user        = "adminuser"
-      private_key = file("~/.ssh/id_rsa")
-      host        = self.public_ip_address
-      timeout     = "2m"
-    }
-  }
-```
-
----
-
-# Create a `inline_commands.sh` file
-
-Make sure that there are no empty lines as they will not be valid shell commands.
-
-The echo commands are because you cannot pass comments to the shell. 
-
-```bash
-echo "============================================================================================"
-echo "Update packages"
-echo "============================================================================================"
-sudo apt-get update && sudo apt-get install -y software-properties-common
-echo "============================================================================================"
-echo "Install Docker and give user permission"
-echo "============================================================================================"
-sudo apt install -y docker.io
-sudo usermod -aG docker $(whoami)
-sudo systemctl restart docker
-sudo apt install -y docker-compose
-```
-
----
-
-# Time to destroy
-
-```bash
-$ terraform destroy
-```
-
-*Verify in Azure Portal that it is gone.*
-
-
-
+In a project with provisioned resources, the state file changes with the workspace.
 
 
 
@@ -13039,13 +15188,13 @@ pulumi.export('bucket_name', bucket.id)
 
 # Problematic Imperative Example
 
-Bash example
+Bash example:
 
 ```bash
 #!/bin/bash
 mkdir logs
 INSTANCE_ID=$(aws ec2 run-instances --image-id ami-0c55b1bfafe1f0c59 --instance-type t2.micro --query 'Instances[0].InstanceId' --output text)
-echo "Instance ID: $INSTANCE_ID" > ./logs/logs.txt
+echo "Instance ID: $INSTANCE_ID" >> ./logs/logs.txt
 ```
 
 *Can you identify the problems above?*
@@ -13149,7 +15298,7 @@ From okay to best:
 
 2. CLI / API (Shell, Bash)
 
-3. SDK/CDK (Software/Cloud Development Clip) (Custom code scripts in programming languages)
+3. SDK/CDK (Software/Cloud Development Kit) (Custom code scripts in programming languages)
 
 4. IaC (Framework for provisioning of resources, Declarative, Prescriptive)
 
@@ -13178,17 +15327,6 @@ The further down the list we go:
 
 * the time sink to get started grows larger.
 
----
-
-# X as Code
-
-<div>
-    <img src="./assets_infrastructure_as_code/X_as_Code.png" alt="X as Code" style="height: 40vh;"/>
-</div>
-
-[Source](https://youtu.be/f5EpcWp0THw?list=PLy7NrYWoggjxKDRWLqkd4Kbt84XEerHhB&t=49)
-
-*Why do we want to configure everything as code?*
 
 ---
 
@@ -13352,7 +15490,7 @@ Declarative: Define the infrastructure you want, it manages how to achieve that.
 
 ---
 
-# Terraform alternative
+# Terraform alternatives
 
 OpenTofu is an open source fork of Terraform made because of changes in their licensing.
 
@@ -13366,326 +15504,7 @@ https://github.com/hashicorp/terraform
 
 
 
-# File: 05._terraform_get_started.md
-
-
-<div class="title-card">
-    <h1>Terraform - Get Started</h1>
-</div>
-
----
-
-# Install and log in to `az`
-
-`az` is the Azure CLI. By logging in locally Terraform can get access to our cloud.
-
-https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build
-
-```bash
-$ az login
-```
-
-Verify the login:
-
-```bash
-$ az account show
-```
-
----
-
-# About the Azure CLI
-
-Allows you to Interact with Azure directly through the terminal. 
-
-You never have to use the portal again!
-
-New Feature! Azure CLI interactive mode:
-
-[![Azure CLI Interactive mode](http://img.youtube.com/vi/GqpwiyYsNIw/0.jpg)](https://youtu.be/GqpwiyYsNIw?t=663)
-
-
----
-
-# Clarification: Terraform under the hood
-
-Though possible to provision everything through `az`, this is not how Terraform does it.
-
-Terraform uses `az` to generate a user token for authorization.
-
-This token is used to validate against what they call [Azure REST API](https://learn.microsoft.com/en-us/rest/api/azure/).
-
----
-
-# Install Terraform
-
-https://developer.hashicorp.com/terraform/install?product_intent=terraform
-
-Success criterion: You can run the following and see the version number:
-
-```bash
-$ terraform --version
-```
-
----
-
-# Suggestion 1: Install auto-completion for Terraform
-
-<span style="font-size: small;">These are suggestions you might consider to make your life easier while working with Terraform.</span>
-
-Install terraform auto-complete (tab completion) for your terminal:
-
-https://developer.hashicorp.com/terraform/tutorials/azure-get-started/install-cli#enable-tab-completion
-
----
-
-# Suggestion 2: Alias `terraform` as `tf`
-
-Alias the `terraform` command so that you can invoke it by simply typing `tf`.
-
-This is pretty standard practice for Terraform users.
-
-***nix**: 
-
-Write `alias tf="terraform"` in the terminal and it will work in the session.
-
-For a more permanent solution add this to your terminal's rc file (such as ~/.bashrc, ~/.zshrc).
-
-**Windows**: Create a terminal profile if it doesn't exist, in either case open it
-
-```powershell
-$ if (!(Test-Path -Path $PROFILE)) { New-Item -ItemType File -Path $PROFILE -Force }
-notepad.exe $PROFILE
-```
-You can now manually add this line to it and save:
-
-```powershell
-Set-Alias -Name tf -Value terraform
-```
-
----
-
-<div class="title-card">
-    <h1>First Terraform project - Let's test it out</h1>
-</div>
-
----
-
-# Let's create our first Terraform project
-
-In an empty folder run:
-
-```bash
-$ terraform init
-```
-
-It complains about a missing configuration file. Let's create `main.tf`. Then run init again.
-
----
-
-# .tf files and VSCode Extensions
-
-The `.tf` file extension is used for Terraform. In VSCode there are extensions for syntax highlighting and Intellisense. 
-
-The official one by Hashicorp seems to be universally hated. Instead, consider the one that is higher rated.
-
-<img src="./assets_infrastructure_as_code/hashicorp_vscode_extension_review.png" alt="hashicorp vscode extension review">
-
----
-
-
-<div class="title-card">
-    <h1>Terraform Workflow</h1>
-</div>
-
----
-
-# Terraform workflow - I
-
-<img src="./assets_infrastructure_as_code/terraform_workflow_1.png" alt="Terraform workflow stages" style="height: 45vh;">
-
-Source: https://developer.hashicorp.com/terraform/tutorials/azure-get-started/infrastructure-as-code
-
----
-
-# Terraform Planning
-
-During the planning, Terraform tries to assess the current state and find out how to get to the desired state. 
-
-It creates a dependency graph of all resources and the order that they must be created in.
-
-*When creating a virtual machine in Azure what ressources need to be created and in what order?*
-
-<details> 
-  <summary>Hint</summary>
-   8 resources need to be created.
-</details>
-
-
----
-
-# Virtual Machine Resource Creation and Order
-
-1. Resource Group
-
-2. OS Disk
-
-3. Virtual Network
-
-4. Subnet
-
-5. Network Security Group
-
-6. Public IP
-
-7. Network Interface
-
-8. Virtual Machine
-
-
----
-
-# Visualizing the Dependency Graph
-
-Combining Terraform and GraphViz, you can actually visualize the graph:
-
-```bash
-$ terraform graph | dot -Tpng > graph.png
-```
-
-Resulting in a graph like this:
-
-<img src="./assets_terraform_get_started/terraform_dependency_graph.png" alt="terraform dependency graph">
-
----
-
-# Terraform commands - overview
-
-| Command                | Description                                          |
-|------------------------|------------------------------------------------------|
-| `terraform init`       | Initializes a Terraform configuration directory. Prepares your directory for other commands, installs necessary providers. |
-| `terraform plan`       | Shows a preview of the actions Terraform plans to take based on the configuration files. Useful for reviewing changes before applying them. |
-| `terraform apply`      | Applies the changes described by `terraform plan`. Provisions or updates infrastructure according to the Terraform configuration. |
-| `terraform destroy`    | Removes all resources defined in the Terraform configuration, tearing down the managed infrastructure. |
-| `terraform fmt`        | Automatically formats Terraform configuration files to a canonical format and style. |
-| `terraform validate`   | Validates the syntax of the Terraform configuration files for correctness. |
-| `terraform output`     | Displays the output variables defined in the configuration, useful for extracting important information like IP addresses. |
-| `terraform refresh`    | Updates the local state file against real-world resources, realigning the state with the actual state of resources in the cloud. |
-| `terraform import`     | Brings real-world infrastructure into Terraform management by adding it to the Terraform state file. |
-| `terraform workspace`  | Manages different workspaces, allowing for managing separate states for the same configuration, useful for different environments (e.g., staging, production). |
-
-
----
-
-
-# Terraform workflow - II
-
-Let's look at the previous table again. 
-
-*Can you spot a command and guess which stage they relate to?*
-
-<img src="./assets_infrastructure_as_code/terraform_workflow_2.png" alt="Terraform workflow stages">
-
-Source: https://developer.hashicorp.com/terraform/intro
-
-
----
-
-
-# Terraform commands - Prepare
-
-Run `terraform init` in an empty folder. Only need to run init once after the provider has been defined: 
-
-```bash
-$ terraform init
-```
-
-Running validate before you apply is optional. This will tell you if your code is valid:
-
-```bash
-$ terraform validate
-```
-
-Even more optional than validate. `fmt` will format your code and change indentation etc. to its preference. 
-
-```bash
-$ terraform fmt
-```
-
----
-
-# Terraform commands - Apply
-
-See the changes that will occur before applying them:
-
-```bash
-$ terraform plan
-```
-
-Running apply will give you an overview once again. Type `yes` to enact them:
-
-```bash
-$ terraform apply
-```
-
-Once finished look for this line and the numbers instead of X, Y, Z:
-
-```
-Apply complete! Resources: **X** added, **Y** changed, **Z** destroyed.
-```
-
----
-
-# Terraform commands - Inspect
-
-See the changes that will occur before applying them:
-
-```bash
-$ terraform show
-```
-
-Running apply will give you an overview once again. Type `yes` to enact them:
-
-```bash
-$ terraform apply
-```
-
----
-
-# Terraform commands - Destroy
-
-This will tear down your cloud services. 
-
-```bash
-$ terraform destroy
-```
-
-As mentioned earlier, the smart thing about Terraform is that they take care of the dependency graph 
-and will shut down services in the necessary order. 
-
----
-
-# The Files of Terraform:
-
-| File Type              | Description                                           |
-|------------------------|-------------------------------------------------------|
-| `*.tf` / `*.tf.json`   | Infrastructure definitions in HCL or JSON.            |
-| `*.tfvars` / `*.tfvars.json` | Variable definitions for configurations.                |
-| `.terraform.lock.hcl` | Tracks provider versions and dependencies.            |
-| `outputs.tf`           | Defines output values from Terraform.                 |
-| State Files (`terraform.tfstate`, `terraform.tfstate.backup`) | Maps configurations to real-world resources.            |
-
----
-
-# Add Terraform ignored files to your `.gitignore`
-
-Get it from: https://gitignore.io/
-
-The cloud specific provisioner files are large and attempting to push them will cause problems with Git.
-
-Besides, there certain files like `*.tfvars` contain sensitive information and shouldn't be pushed.
-
-
-# File: 07._terraform_limitations_problems.md
+# File: 06._terraform_limitations_problems.md
 
 
 <div class="title-card">
@@ -13767,7 +15586,7 @@ Terraform is excellent for versioning your infrastructure.
 
 But you should not push the state file into git because it risks:
 
-* mergeing two versions of the file incorrectly, resulting in an invalid file.
+* merging two versions of the file incorrectly, resulting in an invalid file.
 
 * exposing secrets about your system which can compromise security.
 
@@ -13861,7 +15680,7 @@ https://spacelift.io/
 
 ---
 
-# Repated warning: Terraform is a time sink
+# Repeated warning: Terraform is a time sink
 
 ---
 
@@ -13873,12 +15692,6 @@ https://spacelift.io/
 ---
 
 # Project requirements regarding Terraform
-
----
-
-# Let's look at the exam report requirements and exam requirements
-
-They can be found as links at the top of the semester plan.
 
 
 

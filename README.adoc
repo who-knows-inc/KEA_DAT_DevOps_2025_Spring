@@ -10,7 +10,7 @@ link:00._Course_Material/00._Meta_Course_Material/exam_project_requirements.md[E
 
 link:00._Course_Material/00._Meta_Course_Material/exam_report_requirements.md[Exam Report Requirements]
 
-// link:00._Course_Material/00._Meta_Course_Material/exam_presentation_requirements.md[Exam Presentation Requirements]
+link:00._Course_Material/00._Meta_Course_Material/exam_presentation_requirements.md[Exam Presentation Requirements]
 
 
 == Mandatories
