@@ -26,7 +26,7 @@ Reflect on how your group uses version control. Inspired by [Branching Strategy]
 
 [Software Quality](../04._Sofware_Quality_Linting_CI/02._After/software_quality.md)
 
-[Monitoring Realization](../11._Searching_Logging_Monitoring/02._After/monitoring_realization.md)
+[Monitoring Realization](../11._Searching_Logging_Monitoring_Serverless/02._After/monitoring_realization.md)
 
 ---
 

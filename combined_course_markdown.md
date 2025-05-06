@@ -10166,18 +10166,6 @@ Discuss in pairs/groups.
 
 - **Cost efficiency**
 
-
----
-
-# Big Bang Deployment
-
-Deploying the entire application at once.
-
-*Why do you think it's called that?*
-
-*What problems could occur with this approach?*
-
-
 ---
 
 # Topic: Colorful deployment strategies
@@ -10724,7 +10712,7 @@ $ kubectl delete all --all
 ---
 
 <div class="title-card">
-    <h1>Decleratively working with Kubernetes</h1>
+    <h1>Declaratively working with Kubernetes</h1>
 </div>
 
 ---
@@ -10741,7 +10729,9 @@ Now we will work declaratively by creating a `yaml` file which describes the des
 
 Create a `deployment.yaml` file.
 
-In `deployment.yaml` type "Deployment" and press `tab` to get the template then:
+If you are in VSCode, install the Microsoft Kubernetes extension to get auto-complete.
+
+Then, in `deployment.yaml` type "Deployment" and press `tab` to get the template then:
 
 | Replace Key     | Replacement Value               |
 |-----------------|---------------------------------|
@@ -10750,7 +10740,7 @@ In `deployment.yaml` type "Deployment" and press `tab` to get the template then:
 | `image`         | `andlocker/k8s-web-hello:latest`|
 | `containerPort` | `3000`                            |
 
-The containerPort is 3000 because my Express server is running on port 3000.
+The containerPort is `3000` because my Express server is running on port `3000`.
 
 ---
 
@@ -10833,18 +10823,6 @@ $ minikube service hello
 ```
 
 ---
-
-# Cleaning up
-
-Delete the deployment and service:
-
-```bash
-$ kubectl delete -f deployment.yaml -f service.yaml
-```
-
----
-
-
 
 # Cleaning up
 
@@ -11522,8 +11500,6 @@ https://cloud.google.com/containers
 
 **Automatic Deployment** across different servers, even different regions. 
 
-**Self-healing** by replacing failed containers.
-
 ---
 
 # How Kubernetes works
@@ -11587,7 +11563,7 @@ A pod shares the same volume, namespace, and network (IP address).
 
 [EKS pricing calculator](https://calculator.aws/#/createCalculator/EKS)
 
-**Guessing game**: *How much would the default values of 1 cluster (Standard Support) and 2 clusters (Extended Support) cost per year?*
+**Guessing game**: *How much would the default values of 1 cluster (Standard Support) and 2 clusters (Extended Support) cost per month?*
 
 ---
 
@@ -18282,6 +18258,16 @@ Your task is to see the technical challenges as a way to practice the DevOps pri
 <div class="title-card">
     <h1>Continuous Deployment</h1>
 </div>
+
+---
+
+# Motivation: We want to avoid Big Bang Deployment
+
+**Big Bang Deployment**: Deploying the entire application at once.
+
+*Why do you think it's called that?*
+
+*What problems could occur with this approach?*
 
 ---
 
