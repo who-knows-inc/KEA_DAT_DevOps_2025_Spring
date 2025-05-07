@@ -10,7 +10,7 @@ Lint your Dockerfile using `hadolint`.
 
 All group members should try running `hadolint` locally.
 
-Install hadolint with `brew`, `choco` or similiar. 
+Install hadolint with `brew`, `choco` or similar. 
 
 Then run the following:
 

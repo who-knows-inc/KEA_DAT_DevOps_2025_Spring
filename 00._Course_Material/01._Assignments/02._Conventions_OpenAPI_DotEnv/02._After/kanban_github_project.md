@@ -28,5 +28,5 @@ https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizin
 
 ## Alternatives
 
-It's perfectly fine if you prefer Trello or similiar kanban solutions but try to create a board in GitHub for the sake of this assignment at least. Then you can weigh the pros and cons of your choice better. 
+It's perfectly fine if you prefer Trello or similar kanban solutions but try to create a board in GitHub for the sake of this assignment at least. Then you can weigh the pros and cons of your choice better. 
 
