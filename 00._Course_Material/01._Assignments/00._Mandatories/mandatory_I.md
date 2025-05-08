@@ -10,11 +10,13 @@
 
 ## Requirements
 
-You will be expected to be able to quickly pull out these documents during the exam. 
+These hand-ins serve as an opportunity for you to reflect. Focus on creating material that brings value to you and your group.
 
 You are free to choose any (reasonable) format for the documents.
 
-You are not allowed to hand in anything in private repositories.
+You are expected to be able to answer questions reflecting on the content and in certain cases we might look at the documents created. But do not spend too much time perfecting these documents. 
+
+The links must be public. 
 
 ---
 
