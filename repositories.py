@@ -7,7 +7,7 @@ GROUP_REPOS = [
             "monitoring": "http://34.32.65.102:3000/",
             "stack": ["Rust, Actix"],
             "documentation": [""],
-            "sla": "",
+            "sla": "https://debuggerdemons.strangled.net/sla.html",
 },
   
         {
