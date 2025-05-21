@@ -29,7 +29,7 @@ If you exceed the limit, then anything above the limit will not count towards th
 
 ## Report formalities
 
-The word "report" is just a name. Don't look at this as a document that requires a page of content, introduction, abstract, synopsis, conclusion, etc. This is just a technical writeup that sets the stage for the exam. The report is not decisive for your grade. It is just to give the censor and I an idea of your project in advance. 
+The word "report" is just a name. Don't look at this as a document that requires a table of contents, introduction, abstract, synopsis, conclusion, etc. This is just a technical writeup that sets the stage for the exam. The report is not decisive for your grade. It is just to give the censor and I an idea of your project in advance. 
 
 However, these are the formalities that your report must include:
 

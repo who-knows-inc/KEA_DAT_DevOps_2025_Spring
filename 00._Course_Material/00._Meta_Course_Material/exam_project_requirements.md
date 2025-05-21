@@ -6,6 +6,7 @@ Besides your individual exams a substantial part of the grade will be based on y
 
 ---
 ---
+---
 
 # DevOps
 
@@ -39,12 +40,15 @@ In a way the course runs on two planes. The technological track [Technology](#te
 
 ## In case you weren’t DevOps
 
-Group work often fail in educational institutions and it would be dealt with differently at work places. I will generate graphs before the exam that represent the commit activity of each group member to gauge participation. This is for people who aren't participating much in their group. It isn't a measuring contest.
+Group work often fail in educational institutions and it would be dealt with differently at work places. This course is an attempt to give you tools to handle these situations.
+
+I will generate graphs before the exam that represent the commit activity of each group member in order to gauge participation. This is meant for people who aren't participating much in their group. It isn't a measuring contest.
 
 The goal is not to point fingers but to highlight the situation that has presented you with an excellent opportunity to put your DevOps principles into use such as [psychological safety](https://en.wikipedia.org/wiki/Psychological_safety). 
 
 During the group presentation I would like you to initiate the conversation by bringing it up. Rather than a negative it is seen as fortitude that you are able to analyze and reflect on real-world problems. This will show that not only have you learned the DevOps theory but managed to apply it to your own group situation. 
 
+---
 ---
 ---
 
@@ -104,6 +108,7 @@ While not required to implement it, you must've discussed scaling and an optimal
 
 Your system must be deployed for the exam.
 
+---
 ---
 ---
 
