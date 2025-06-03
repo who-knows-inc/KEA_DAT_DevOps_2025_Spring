@@ -46,7 +46,7 @@ https://www.youtube.com/watch?v=0chZFIZLR_0
 From the video:
 
 <div>
-    <img src="./git_merge_vs_rebase_vs_squash_commit_pros_cons.png" alt="Git merging vs. rebasing the great debate"/>
+    <img src="../../04._Sofware_Quality_Linting_CI/01._Before/assets_research_git_branching_strategies/git_merge_vs_rebase_vs_squash_commit_pros_cons.png" alt="Git merging vs. rebasing the great debate"/>
 </div>
 
 
