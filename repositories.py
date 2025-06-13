@@ -4,10 +4,10 @@ GROUP_REPOS = [
             "gitLinks": ["https://github.com/Debugger-Demons/whoknows.git"],
             "backend": "http://34.32.54.82:8080/",
             "frontend": "https://debuggerdemons.strangled.net/",
-            "monitoring": "",
+            "monitoring": "http://34.32.65.102:3000/",
             "stack": ["Rust, Actix"],
             "documentation": [""],
-            "sla": "",
+            "sla": "https://debuggerdemons.strangled.net/sla.html",
 },
   
         {
@@ -24,9 +24,9 @@ GROUP_REPOS = [
          {
             "name": "DevOops23b",
             "gitLinks": ["https://github.com/DevOops23b/whoknows.git", "https://github.com/DevOops23b/GoSearch.git"],
-            "backend": "http://40.91.244.170:8080",
-            "frontend": "http://40.91.244.170:8080",
-            "monitoring": "",
+            "backend": "https://gosearch.dk",
+            "frontend": "https://gosearch.dk",
+            "monitoring": "http://40.127.185.185:3000/",
             "stack": ["GO m. Gorilla", "HTML, CSS"],
             "documentation": [""],   
         },
