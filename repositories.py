@@ -18,7 +18,7 @@ GROUP_REPOS = [
             "monitoring": "http://13.79.35.167:3000/",
             "stack": ["Ruby", "Sinatra", "SQLite", "HTML/CSS/JS"],
             "documentation": [],
-            "sla": "",
+            "sla": "https://dynasearch.dk/sla",
 
 },
          {
